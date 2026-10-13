@@ -1,0 +1,1437 @@
+<title>Brooke Vaughn-Saige Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a set decorator's work index. A slate-style metadata grid per client, full-bleed hero, then a gallery. Projects render from one data list so new clients drop in. */
+:root{
+  --paper:#F1F1EE;
+  --surface:#E7E6E1;
+  --ink:#111111;
+  --muted:#111111;
+  --rule:#CFCDC5;
+  --brass:#8C6A2E;
+  --overlay:rgba(16,15,13,.94);
+  --overlay-ink:#F1EFE9;
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gutter:clamp(16px,4vw,56px);
+  --max:1320px;
+}
+:root{color-scheme:light}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.mark{font-family:var(--display);font-size:19px;letter-spacing:.01em;text-decoration:none}
+.mark em{font-style:italic}
+nav{display:flex;gap:clamp(14px,3vw,32px)}
+nav a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+
+/* Intro */
+.intro{padding-block:clamp(48px,9vw,120px) clamp(32px,6vw,72px)}
+.intro h1{font-family:var(--display);font-weight:400;font-size:clamp(44px,8.4vw,124px);line-height:.94;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.intro h1 em{font-style:italic}
+.intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:clamp(24px,5vw,80px);margin-top:0;align-items:start}
+.intro-copy{max-width:880px}
+.intro-copy > p:first-child{margin:0 0 clamp(28px,4vw,44px);max-width:62ch;font-size:clamp(18px,1.6vw,22px);color:var(--ink)}
+.intro .disc-lead{margin:0 0 6px;font-size:11px;color:var(--muted)}
+.spec{list-style:none;margin:0;padding:0;columns:2 300px;column-gap:40px;font-family:var(--mono);font-size:12px;line-height:1.5;letter-spacing:.08em;text-transform:uppercase}
+.spec li{break-inside:avoid;padding:8px 0;border-bottom:1px solid var(--rule)}
+.intro p{margin:0;max-width:58ch;font-size:clamp(16px,1.35vw,19px);color:var(--muted)}
+@media (max-width:760px){.intro-grid{grid-template-columns:1fr}}
+
+/* Index */
+.index{border-top:1px solid var(--ink);padding-block:22px 64px}
+.index-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:18px}
+.index-head h2{font-family:var(--display);font-weight:400;font-size:28px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:transparent;color:var(--muted);border:1px solid var(--rule);padding:7px 12px;border-radius:999px;cursor:pointer}
+.chip:hover{color:var(--ink);border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.rows{list-style:none;margin:0;padding:0}
+.row a{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr) minmax(0,2fr);gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--rule);text-decoration:none}
+.row .n{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.row .c{font-family:var(--display);font-size:clamp(22px,2.4vw,30px);line-height:1.1}
+.row .s,.row .d,.row .y{font-size:14px;color:var(--muted)}
+.row .y{font-family:var(--mono);font-size:12px;text-align:right;font-variant-numeric:tabular-nums}
+.row a:hover .c{font-style:italic}
+@media (max-width:760px){.row a{grid-template-columns:minmax(0,1fr)}.row .d,.row .s{display:none}}
+
+/* Case study */
+.case{padding-block:clamp(40px,7vw,96px);border-top:1px solid var(--rule);scroll-margin-top:64px}
+.hero{margin:0 0 clamp(24px,4vw,40px)}
+.hero button{display:block;width:100%;padding:0;border:0;background:var(--surface);cursor:zoom-in}
+.hero img{display:block;width:100%;height:auto;max-height:78vh;object-fit:cover}
+.hero video{display:block;width:100%;max-width:100%;aspect-ratio:16/9;background:var(--surface);object-fit:cover}
+.hero figcaption{margin-top:8px}
+.hero.vertical button{width:auto;max-width:100%;margin:0 auto}
+.hero.vertical img{width:auto;max-width:100%;height:min(82vh,960px);max-height:none;object-fit:contain}
+.hero.vertical video{width:auto;max-width:100%;height:min(82vh,960px);aspect-ratio:9/16;margin:0 auto;background:#000;object-fit:contain}
+.case-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,5vw,72px)}
+.case h3{font-family:var(--display);font-weight:400;font-size:clamp(40px,6.2vw,88px);line-height:.95;letter-spacing:-.015em;margin:0 0 18px;text-wrap:balance}
+.case h3 em{font-style:italic}
+.case .summary{margin:0;max-width:60ch;font-size:17px}
+.pull{margin:28px 0 0;padding:4px 0 4px 22px;border-left:2px solid var(--brass);max-width:56ch}
+.pull p{margin:0 0 12px;font-family:var(--display);font-style:italic;font-size:clamp(20px,1.9vw,25px);line-height:1.35}
+.pull.press{border-left-color:var(--rule)}
+.pull.press p{font-size:clamp(17px,1.5vw,20px)}
+.pull footer{color:var(--muted);border:0}
+.slate{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--ink);align-self:start}
+.slate div{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule);min-width:0}
+.slate div:nth-child(2n){padding-left:12px;border-left:1px solid var(--rule)}
+.slate dt{margin:0 0 4px}
+.slate dd{margin:0;font-size:15px}
+.slate .wide{grid-column:1/-1;padding-left:0!important;border-left:0!important}
+@media (max-width:860px){.case-head{grid-template-columns:1fr}}
+
+.set-title{display:flex;align-items:baseline;gap:14px;margin:clamp(40px,5vw,64px) 0 16px}
+.set-title::after{content:"";flex:1;border-bottom:1px solid var(--rule)}
+.nda{margin:0;padding:clamp(28px,4vw,48px) 0;border-bottom:1px solid var(--rule);font-family:var(--display);font-style:italic;font-size:clamp(20px,2vw,26px);color:var(--muted)}
+.gallery{columns:3 280px;column-gap:14px}
+.gallery.tall{columns:4 200px}
+.gallery.justified{columns:auto;display:flex;flex-wrap:wrap;gap:14px}
+.gallery.justified .tile{margin:0;min-width:0}
+.gallery.reels{columns:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:14px}
+.gallery.reels .tile{margin:0}
+.gallery.reels .tile video{aspect-ratio:9/16;object-fit:contain;background:#000}
+.tile{break-inside:avoid;margin:0 0 14px}
+.tile button{display:block;width:100%;padding:0;border:0;background:var(--surface);cursor:zoom-in}
+.tile img{display:block;width:100%;height:auto;transition:opacity .25s}
+.tile button:hover img{opacity:.88}
+.tile video{display:block;width:100%;max-width:100%;aspect-ratio:16/9;background:var(--surface);object-fit:cover}
+.tile figcaption{margin-top:6px;font-size:13px;color:var(--muted)}
+
+/* Roster */
+.roster{border-top:1px solid var(--ink);padding-block:28px clamp(56px,8vw,110px)}
+.roster h2{font-family:var(--display);font-weight:400;font-size:28px;margin:0 0 22px}
+.names{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 0;font-family:var(--display);font-size:clamp(20px,2.3vw,30px);line-height:1.35}
+.names li::after{content:"/";color:var(--rule);margin:0 .45em}
+.names li:last-child::after{content:""}
+
+footer{border-top:1px solid var(--rule)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:24px 40px}
+#contact{border-top:1px solid var(--ink);margin-top:0;scroll-margin-top:60px}
+#contact .wrap{display:block;padding-block:clamp(40px,6vw,80px) clamp(56px,8vw,112px)}
+#contact .label{margin:0 0 14px}
+.contact-email{font-family:var(--display);font-weight:400;font-style:italic;font-size:clamp(22px,3.4vw,44px);letter-spacing:-.01em;text-decoration:none;border-bottom:1px solid currentColor;overflow-wrap:anywhere}
+.contact-email:hover{opacity:.65}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:var(--overlay);color:var(--overlay-ink);display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:calc(12px + env(safe-area-inset-top,0px)) 16px calc(12px + env(safe-area-inset-bottom,0px))}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.lb-stage{display:flex;align-items:center;justify-content:center;min-height:0}
+.lb img{max-width:100%;max-height:100%;object-fit:contain}
+.lb-cap{text-align:center;font-size:14px;opacity:.8;min-height:1.4em}
+.lb button{font:inherit;color:inherit;background:none;border:1px solid rgba(241,239,233,.35);padding:8px 14px;border-radius:999px;cursor:pointer}
+.lb-nav{display:flex;gap:8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">Brooke <em>Vaughn-Saige</em></a>
+    <nav aria-label="Sections"><a href="#work">Work</a><a href="#clients">Clients</a><a href="#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap intro">
+    <h1 class="sr-only">Brooke Vaughn-Saige portfolio</h1>
+    <div class="intro-copy">
+      <p>Creative for still photography, film and video. I work with producers, agencies, in-house brand teams and clients of every size, from start-ups to global brands.</p>
+      <p class="label disc-lead">I specialize in</p>
+      <ul class="spec"><li>Production Design for Film, Video &amp; Still Photography</li><li>Art Direction</li><li>Hybrid Docu-Narratives</li><li>Creative Direction</li><li>Set Decoration</li><li>F&amp;B / Set Styling</li><li>Prop &amp; Set Dec Shopper / Buyer</li><li>Experiential Marketing &amp; Guest Experience Design</li></ul>
+    </div>
+  </section>
+
+  <section class="wrap index" id="work" aria-labelledby="index-title">
+    <div class="index-head">
+      <h2 id="index-title">Work index</h2>
+      <div class="chips" id="chips" role="group" aria-label="Filter by sector"></div>
+    </div>
+    <ol class="rows" id="rows"></ol>
+  </section>
+
+  <div id="cases"></div>
+
+  <section class="wrap roster" id="clients" aria-labelledby="clients-title">
+    <h2 id="clients-title">Selected clients</h2>
+    <ul class="names">
+      <li>Netflix</li><li>HBO</li><li>NFL</li><li>Spotify</li><li>Procter &amp; Gamble</li><li>Capital One</li><li>Progressive</li><li>Nationwide</li><li>Root Insurance</li><li>Gerber Life</li><li>U.S. Air Force</li><li>Restoration Hardware</li><li>American Signature Furniture</li><li>Bath &amp; Body Works</li><li>Dick's Sporting Goods</li><li>HOKA</li><li>On</li><li>Kay Jewelers</li><li>Kroger</li><li>Libby Wine</li><li>Dex</li><li>Stanley Steemer</li><li>Ohio Department of Transportation</li><li>Hamilton Devices</li><li>Ohio Lottery</li><li>Big Lots</li><li>TriHealth</li><li>Hilton</li><li>Big Ten Network</li><li>Vox</li><li>Twenty One Pilots</li><li>University of Tennessee</li><li>Good Culture</li><li>Harmless Harvest</li><li>Babylife Organics</li><li>I and love and you</li><li>Casa Malka</li><li>Mushroom Heaven</li><li>Littleton's Market</li><li>Fly By Jing</li><li>Condado</li><li>Beer Barrel</li>
+    </ul>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="label">Contact</p>
+    <a class="contact-email" href="mailto:brookevaughnsaige@gmail.com">brookevaughnsaige@gmail.com</a>
+  </div>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lb-bar"><span id="lb-count"></span><div class="lb-nav"><button id="lb-prev" aria-label="Previous image">Prev</button><button id="lb-next" aria-label="Next image">Next</button><button id="lb-close">Close</button></div></div>
+  <div class="lb-stage"><img id="lb-img" alt=""></div>
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
+
+<script>
+/* To add a client: copy one object in PROJECTS, change the fields, and list its images.
+   Sector chips and the work index build themselves from this list. */
+const PROJECTS = [
+  {
+    id: "unioncounty",
+    client: "Union County",
+    display: "Union <em>County</em>",
+    sector: "Film",
+    scope: "Feature film",
+    year: "2026",
+    role: "Set Decorator",
+    designer: "Juliana Barreto Barreto",
+    ad: "Shiloh Kidd",
+    writerdirector: "Adam Meeks",
+    dp: "Stefan Weinberger",
+    cast: "Will Poulter, Annette Deao, Noah Centineo, Elise Kibler, Emily Meade",
+    distributor: "Oscilloscope Laboratories",
+    location: "Ohio",
+    format: "Feature film",
+    theatrical: "August 2026",
+    streaming: "Prime Video, Apple TV, YouTube, Fandango at Home, Google Play",
+    quote: "Growing up in Ohio, the opioid epidemic was never just a headline. Union County let me tell that truth through independent film, with deep respect for the real drug court participants who trusted us with their stories. I believe community can replace addiction, and that the stories we tell can help bring people home.",
+    summary: "Assigned to a county-mandated drug court program, Cody Parsons embarks on the tenuous journey toward recovery amidst the opioid epidemic in rural Ohio. Official Selection, Sundance Film Festival 2026.",
+    press: "A bedroom in a sober living house has a collection of paper ephemera taped to one wall, each revealing the personality of someone who, however briefly, called this room home.",
+    pressBy: "IndieWire",
+    hero: { video: "video/unioncounty.mp4", poster: "img/uc-trailer-poster.jpg", alt: "Union County official trailer", cap: "" },
+    sets: [
+      { title: "Stills & key art", layout: "justified", rowH: 460, images: [
+        { src: "img/uc-car.jpg", ar: 1.777, cap: "" },
+        { src: "img/uc-vulture.jpg", ar: 0.561, cap: "" },
+        { src: "img/uc-vertical.jpg", ar: 0.592, cap: "" },
+        { br: true, src: "img/uc-monitor.jpg", ar: 1.333, cap: "" },
+        { src: "img/uc-indiewire.jpg", ar: 0.723, alt: "IndieWire review excerpt", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "libby",
+    client: "Libby Wine",
+    display: "Libby <em>Non-Alcoholic Wine</em>",
+    sector: "Consumer Goods",
+    scope: "Brand launch stills & social",
+    year: "2025",
+    role: "Art Director and Co-Creative Director",
+    cocd: "Amanda Perez",
+    photographer: "Ryan Tuttle",
+    location: "",
+    format: "Still photography, social",
+    summary: "Brand imagery for Libby, a non-alcoholic sparkling wine made by winemakers-turned-parents. A rooftop golden-hour party strung with café lights and patterned cushions, a vinyl listening session on the floor, a backyard barbecue with the kids and the dog, a beachside picnic, a late-night fridge raid and a sparkling rosé pop.",
+    hero: { src: "img/libby-rooftop-wide.jpg", alt: "Rooftop golden-hour party", cap: "" },
+    sets: [
+      { title: "Stills", layout: "justified", images: [
+        { src: "img/libby-turntable.jpg", ar: 0.851, cap: "" },
+        { src: "img/libby-skate.jpg", ar: 0.762, cap: "" },
+        { video: "video/libby-full.mp4", poster: "img/libby-full-poster.jpg", ar: 0.605, alt: "Libby website hero", cap: "" },
+        { src: "img/libby-t-arrived.jpg", ar: 0.804, cap: "" },
+        { src: "img/libby-dad-kids.jpg", ar: 0.873, cap: "" },
+        { src: "img/libby-t-longweekend.jpg", ar: 0.805, cap: "" },
+        { src: "img/libby-t-usnow.jpg", ar: 0.804, cap: "" },
+        { src: "img/libby-pour.jpg", ar: 0.900, cap: "" },
+        { src: "img/libby-rose-pop.jpg", ar: 1.000, cap: "" },
+        { src: "img/libby-t-bottleservice.jpg", ar: 0.807, cap: "" },
+        { src: "img/libby-fridge.jpg", ar: 0.800, cap: "" },
+        { src: "img/libby-rooftop.jpg", ar: 0.800, cap: "" },
+        { src: "img/libby-t-pov.jpg", ar: 0.800, cap: "" },
+        { src: "img/libby-picnic.jpg", ar: 0.769, cap: "" },
+        { src: "img/libby-t-propane.jpg", ar: 0.797, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "casamalka",
+    client: "Casa Malka",
+    display: "Casa <em>Malka</em>",
+    sector: "Consumer Goods",
+    scope: "Welcome to the Queendom, tequila launch campaign",
+    year: "",
+    role: "Assistant Art Director",
+    dp: "Noah Higgins",
+    photographer: "Brian Kaiser",
+    artdirector: "Christina Allen",
+    agency: "Nihilo",
+    location: "",
+    format: "Photo stills, video production, out-of-home",
+    summary: "Welcome to the Queendom, the launch campaign for Casa Malka additive-free tequila, built as a series of queens' chambers: a gilded throne in red velvet ringed with pillar candles against a painted sky backdrop, a white-draped bed set with a gold-spiked halo and faux-fur throne, and an old-master portrait chair framed by tropical leaves and a golden bird.",
+    hero: { video: "video/casamalka.mp4", poster: "img/casamalka-poster.jpg", alt: "Welcome to the Queendom", cap: "", vertical: true },
+    sets: [
+      { title: "Campaign film", layout: "justified", images: [
+        { video: "video/casamalka-film.mp4", poster: "img/casamalka-film-poster.jpg", ar: 1.441, alt: "Welcome to the Queendom, campaign film", cap: "" }
+      ]},
+      { title: "Campaign", layout: "justified", rowH: 320, images: [
+        { src: "img/cm-poster.jpg", ar: 0.666, cap: "" },
+        { src: "img/cm-throne.jpg", ar: 0.801, cap: "" },
+        { src: "img/cm-blanco.jpg", ar: 0.848, cap: "" },
+        { src: "img/cm-fur.jpg", ar: 0.807, cap: "" },
+        { src: "img/cm-halo.jpg", ar: 0.799, cap: "" },
+        { src: "img/cm-reposado.jpg", ar: 0.754, cap: "" },
+        { src: "img/cm-moss.jpg", ar: 0.806, cap: "" },
+        { src: "img/cm-billboard.jpg", ar: 1.797, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "trihealth",
+    client: "TriHealth",
+    display: "TriHealth <em>Be Seen. Be Heard.</em>",
+    sector: "Healthcare",
+    scope: "Brand film & stills",
+    year: "2024",
+    role: "Production Designer",
+    dp: "Jeremy Snell",
+    production: "Green Blanket",
+    director: "Kelsey Larkin",
+    photographer: "Brian Steege",
+    location: "",
+    format: "Broadcast & digital video, stills",
+    summary: "Brand campaign for TriHealth built around patients' own stories: a family home, a delivery room, a rehab gym, a support group circle, a radiology review, and a mural wall. The line is \"Be seen. Be heard.\"",
+    hero: { video: "video/trihealth.mp4", poster: "img/trihealth-poster.jpg", alt: "Director's cut", cap: "" },
+    sets: [
+      { title: "Cutdowns", layout: "wide", images: [
+        { video: "video/trihealth-artist.mp4", poster: "img/trihealth-artist-poster.jpg", alt: "The artist", cap: "" },
+        { video: "video/trihealth-baby.mp4", poster: "img/trihealth-baby-poster.jpg", alt: "The delivery", cap: "" }
+      ]},
+      { title: "Stills", layout: "wide", images: [
+        { src: "img/tri-delivery.jpg", alt: "Delivery room", cap: "" },
+        { src: "img/tri-river.jpg", alt: "Riverfront sketchbook", cap: "" },
+        { src: "img/tri-artist.jpg", alt: "Mural wall", cap: "" },
+        { src: "img/tri-mural.jpg", alt: "Painting the mural", cap: "" },
+        { src: "img/tri-portrait.jpg", alt: "Riverfront portrait", cap: "" },
+        { src: "img/tri-patient.jpg", alt: "Labor and delivery", cap: "" },
+        { src: "img/tri-elder.jpg", alt: "At home", cap: "" },
+        { src: "img/tri-elder-2.jpg", alt: "At home, laughing", cap: "" },
+        { src: "img/tri-rehab.jpg", alt: "Physical therapy", cap: "" },
+        { src: "img/tri-fistbump.jpg", alt: "Care team", cap: "" },
+        { src: "img/tri-group.jpg", alt: "Support group", cap: "" },
+        { src: "img/tri-group-2.jpg", alt: "Support group", cap: "" },
+        { src: "img/tri-listener.jpg", alt: "Listening", cap: "" },
+        { src: "img/tri-home.jpg", alt: "Kitchen table", cap: "" },
+        { src: "img/tri-listening-2.jpg", alt: "Conversation", cap: "" },
+        { src: "img/tri-nurse.jpg", alt: "Home care visit", cap: "" },
+        { src: "img/tri-hands.jpg", alt: "Hands, detail", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "gerber",
+    client: "Gerber Life",
+    display: "Gerber Life <em>Family Plan</em>",
+    sector: "Insurance",
+    scope: "Family Plan broadcast spot",
+    year: "2024",
+    role: "Production Designer",
+    director: "Ben Weinstein",
+    production: "Electra with Green Blanket",
+    location: "",
+    format: "Broadcast & digital video",
+    summary: "A lakeside wedding for the Gerber Life Family Plan: a draped ceremony arch dressed in white roses and greenery, cross-back chairs tied with sheer fabric, and petals down the aisle.",
+    hero: { video: "video/gerber.mp4", poster: "img/gerber-poster.jpg", alt: "Family Plan spot", cap: "" },
+    sets: [
+      { title: "Frames", layout: "wide", images: [
+        { src: "img/gerber-ceremony.jpg", alt: "The ceremony arch", cap: "" },
+        { src: "img/gerber-aisle.jpg", alt: "Down the aisle", cap: "" },
+        { src: "img/gerber-groom.jpg", alt: "The groom", cap: "" },
+        { src: "img/gerber-bride.jpg", alt: "The bride", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "nflfilms",
+    client: "NFL Films",
+    display: "NFL Films <em>for HBO Max</em>",
+    sector: "Film",
+    scope: "Narrative documentary, in post-production",
+    year: "",
+    role: "Production Designer",
+    dp: "Phil Gushue",
+    director: "Kobi Theiler",
+    production: "NFL Films",
+    network: "HBO Max",
+    location: "",
+    format: "Narrative documentary",
+    release: "2027 (in post-production)",
+    summary: "A narrative documentary from NFL Films for HBO Max, currently in post-production with a release planned for 2027.",
+    hero: { src: "img/nfl-hbo.jpg", alt: "NFL Films and HBO Max", cap: "" },
+    sets: []
+  },
+  {
+    id: "usaf",
+    client: "U.S. Air Force",
+    display: "Just One <em>Chapter</em>",
+    sector: "Government",
+    scope: "Just One Chapter",
+    year: "2025",
+    role: "Production Designer",
+    dp: "Mario Montero",
+    production: "Service production for Electra",
+    location: "",
+    format: "Broadcast & digital video",
+    summary: "Just One Chapter, for the U.S. Air Force, moves from ordinary life (a school bus, a boy at dusk) into Air Force missions: a tactical breach, a humanitarian rescue aboard a cargo aircraft, a surgical team, and airmen in the hangar beneath a C-17.",
+    hero: { video: "video/usaf.mp4", poster: "img/usaf-hangar.jpg", alt: "Just One Chapter", cap: "" },
+    sets: [
+      { title: "Frames", layout: "wide", images: [
+        { src: "img/usaf-hangar.jpg", alt: "Hangar, C-17", cap: "" },
+        { src: "img/usaf-bus.jpg", alt: "School bus", cap: "" },
+        { src: "img/usaf-rescue.jpg", alt: "Rescue aboard the aircraft", cap: "" },
+        { src: "img/usaf-breach.jpg", alt: "Tactical breach", cap: "" },
+        { src: "img/usaf-dusk.jpg", alt: "At dusk", cap: "" },
+        { src: "img/usaf-surgeon.jpg", alt: "Surgical team", cap: "" },
+        { src: "img/usaf-scope.jpg", alt: "On the scope", cap: "" },
+        { src: "img/usaf-clouds.jpg", alt: "Storm clouds", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "progressive",
+    client: "Progressive",
+    display: "Progressive <em>At Home with Baker Mayfield</em>",
+    sector: "Insurance",
+    scope: "At Home with Baker Mayfield, Super Bowl spot",
+    year: "",
+    role: "Art Coordinator",
+    production: "O Positive",
+    location: "",
+    format: "Broadcast",
+    summary: "Progressive's At Home with Baker Mayfield campaign, in which the quarterback lives inside his own football stadium. The Alice Cooper spot aired during the Super Bowl. The series also includes House Sitter and a Halloween trick-or-treat spot, with the stadium gates, concourse and back-of-house dressed as a home.",
+    hero: { video: "video/progressive.mp4", poster: "img/progressive-poster.jpg", alt: "Alice Cooper, Super Bowl spot", cap: "" },
+    sets: [
+      { title: "More from the campaign", layout: "wide", images: [
+        { video: "video/progressive-housesitter.mp4", poster: "img/progressive-housesitter-poster.jpg", alt: "House Sitter", cap: "" },
+        { video: "video/progressive-halloween.mp4", poster: "img/progressive-halloween-poster.jpg", alt: "Trick or Treat", cap: "" }
+      ]},
+      { title: "Frames", layout: "wide", images: [
+        { src: "img/prog-cooper.jpg", alt: "Alice Cooper", cap: "" },
+        { src: "img/prog-cooper-store.jpg", alt: "Team store delivery", cap: "" },
+        { src: "img/prog-halloween-gate.jpg", alt: "Halloween at the stadium gate", cap: "" },
+        { src: "img/prog-stadium-steps.jpg", alt: "Stadium steps", cap: "" },
+        { src: "img/prog-halloween-candy.jpg", alt: "Trick or treat", cap: "" },
+        { src: "img/prog-boiler.jpg", alt: "Boiler room", cap: "" },
+        { src: "img/prog-trash.jpg", alt: "Back of house", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "twentyonepilots",
+    client: "Twenty One Pilots",
+    display: "Twenty One Pilots <em>Livestream &amp; Cinema Experience</em>",
+    sector: "Media & Entertainment",
+    scope: "Livestream Experience & Cinema Experience",
+    year: "2021–22",
+    role: "Set Decorator",
+    asstdir: "Hannah Barlow",
+    designer: "Neil Patel",
+    director: "Jason Zada",
+    location: "",
+    format: "Global livestream, theatrical release",
+    summary: "A one-night-only livestream for the release of Scaled and Icy (May 21, 2021), later remastered as the Cinema Experience extended cut for theaters worldwide (May 19, 2022). The band played through a run of fully dressed sets: a '70s living room in shag and patterned upholstery, a snow-capped banquet hall under a chandelier, a rainbow-arch stage, a moonlit stage with a rowboat, and a night street on Mulberry St.",
+    hero: null,
+    sets: [
+      { title: "Stills & key art", layout: "justified", images: [
+        { src: "img/top-mulberry.jpg", ar: 1.789, cap: "" },
+        { src: "img/top-livingroom.jpg", ar: 1.773, cap: "" },
+        { src: "img/top-fire-escape.jpg", ar: 1.787, cap: "" },
+        { src: "img/top-snow.jpg", ar: 1.801, cap: "" },
+        { src: "img/top-poster-livestream.jpg", ar: 0.752, cap: "" },
+        { src: "img/top-poster-cinema.jpg", ar: 0.677, cap: "" }
+      ]},
+      { title: "Sets", layout: "reels", images: [
+        { video: "video/top-1.mp4", poster: "img/top-1-poster.jpg", cap: "" },
+        { video: "video/top-2.mp4", poster: "img/top-2-poster.jpg", cap: "" },
+        { video: "video/top-3.mp4", poster: "img/top-3-poster.jpg", cap: "" },
+        { video: "video/top-4.mp4", poster: "img/top-4-poster.jpg", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "on",
+    client: "On × Dick's Sporting Goods",
+    display: "On <em>Back to School</em>",
+    sector: "Retail",
+    scope: "Back-to-school campaign, stills & video",
+    year: "2025",
+    role: "Production Designer",
+    director: "Gustavo Cervantes",
+    production: "Green Blanket",
+    location: "",
+    format: "Still photography, video",
+    summary: "Back-to-school campaign for On at Dick's Sporting Goods across two age groups: recess for younger kids, with a dressed classroom locker, playground and blacktop chalk games; and campus life for teens, with hallway lockers, stadium bleachers, the track and a mural-lined cafeteria.",
+    hero: { video: "video/on-spot1.mp4", poster: "img/on-spot1-poster.jpg", alt: "Campaign spot", cap: "" },
+    sets: [
+      { title: "Recess", layout: "tall", images: [
+        { src: "img/on-locker.jpg", alt: "Classroom locker", cap: "" },
+        { src: "img/on-steps-jump.jpg", alt: "Out the front doors", cap: "" },
+        { src: "img/on-swing.jpg", alt: "On the swings", cap: "" },
+        { src: "img/on-hallway.jpg", alt: "Down the hallway", cap: "" },
+        { src: "img/on-rope.jpg", alt: "Rope climber", cap: "" },
+        { src: "img/on-hoops.jpg", alt: "Playground ring hop", cap: "" },
+        { src: "img/on-bars.jpg", alt: "Monkey bars", cap: "" },
+        { src: "img/on-chalk-boy.jpg", alt: "Chalk course", cap: "" },
+        { src: "img/on-steps-jump-2.jpg", alt: "Last bell", cap: "" },
+        { src: "img/on-scooter-3.jpg", alt: "Scooter boards", cap: "" },
+        { src: "img/on-chalk-circle.jpg", alt: "Shoe circle on chalk", cap: "" },
+        { src: "img/on-hoops-2.jpg", alt: "Ring hop", cap: "" },
+        { src: "img/on-scooter.jpg", alt: "Scooter races", cap: "" },
+        { src: "img/on-hoops-feet-2.jpg", alt: "Ring hop, detail", cap: "" },
+        { src: "img/on-scooter-2.jpg", alt: "Scooter races", cap: "" },
+        { src: "img/on-hoops-feet.jpg", alt: "Ring hop, detail", cap: "" },
+        { src: "img/on-chalk.jpg", alt: "Blacktop chalk", cap: "" }
+      ]},
+      { title: "Campus", layout: "tall", images: [
+        { src: "img/on-lockers-feet.jpg", alt: "Feet up on the lockers", cap: "" },
+        { src: "img/on-bleachers.jpg", alt: "Down the bleachers", cap: "" },
+        { src: "img/on-steps.jpg", alt: "Main entrance steps", cap: "" },
+        { src: "img/on-track-walk.jpg", alt: "On the track", cap: "" },
+        { src: "img/on-cafeteria.jpg", alt: "Cafeteria mural", cap: "" },
+        { src: "img/on-group.jpg", alt: "Walk to class", cap: "" },
+        { src: "img/on-bleachers-2.jpg", alt: "Bleachers", cap: "" },
+        { src: "img/on-circle.jpg", alt: "Shoe circle", cap: "" },
+        { src: "img/on-field-walk.jpg", alt: "Across the field", cap: "" },
+        { src: "img/on-cafeteria-2.jpg", alt: "Cafeteria mural", cap: "" },
+        { src: "img/on-group-walk.jpg", alt: "Brick path", cap: "" },
+        { src: "img/on-cafeteria-3.jpg", alt: "Lunch table", cap: "" },
+        { src: "img/on-steps-2.jpg", alt: "Front steps", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "hoka",
+    client: "HOKA × Dick's Sporting Goods",
+    display: "HOKA <em>Back to School</em>",
+    sector: "Retail",
+    scope: "Back-to-school campaign, stills & video",
+    year: "2025",
+    role: "Production Designer",
+    production: "Green Blanket",
+    location: "Columbus, OH",
+    format: "Still photography, video",
+    summary: "Back-to-school 2025 campaign for HOKA at Dick's Sporting Goods: sidewalk lifestyle scenes with kids and families, plus product still life built around a yellow school bus, park benches and front stoops.",
+    hero: { video: "video/hoka-bts.mp4", poster: "img/hoka-bts-poster.jpg", alt: "Campaign film", cap: "" },
+    sets: [
+      { title: "On location", layout: "tall", images: [
+        { src: "img/hoka-backbend.jpg", alt: "Sidewalk backbend", cap: "" },
+        { src: "img/hoka-jump.jpg", alt: "First-day energy", cap: "" },
+        { src: "img/hoka-bus-kids.jpg", alt: "At the bus", cap: "" },
+        { src: "img/hoka-headstand.jpg", alt: "Headstand", cap: "" },
+        { src: "img/hoka-run.jpg", alt: "Running late", cap: "" },
+        { src: "img/hoka-boy.jpg", alt: "Walk to school", cap: "" },
+        { src: "img/hoka-dad.jpg", alt: "Dad and son", cap: "" },
+        { src: "img/hoka-bend.jpg", alt: "Bend and stretch", cap: "" },
+        { src: "img/hoka-walk.jpg", alt: "Sidewalk walk", cap: "" },
+        { src: "img/hoka-lacing.jpg", alt: "Lacing up", cap: "" }
+      ]},
+      { title: "Product still life", layout: "tall", images: [
+        { src: "img/hoka-bench-bus.jpg", alt: "Bench lineup with the bus", cap: "" },
+        { src: "img/hoka-bus-stop.jpg", alt: "Bus stop", cap: "" },
+        { src: "img/hoka-stoop.jpg", alt: "Front stoop", cap: "" },
+        { src: "img/hoka-mirror.jpg", alt: "Hung from the bus mirror", cap: "" },
+        { src: "img/hoka-bench-2.jpg", alt: "Bench lineup", cap: "" },
+        { src: "img/hoka-bus-hood.jpg", alt: "On the hood", cap: "" },
+        { src: "img/hoka-steps-blue.jpg", alt: "Steps, blue colorway", cap: "" },
+        { src: "img/hoka-bus-window.jpg", alt: "Bus window", cap: "" },
+        { src: "img/hoka-steps-pink.jpg", alt: "Steps, pink colorway", cap: "" },
+        { src: "img/hoka-bench.jpg", alt: "Park bench", cap: "" },
+        { src: "img/hoka-bus-seat.jpg", alt: "Bus seat", cap: "" },
+        { src: "img/hoka-bus-feet.jpg", alt: "Feet up on the bus", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "ohiolottery",
+    client: "Ohio Lottery",
+    display: "Ohio Lottery <em>Holiday Scratch-Offs</em>",
+    sector: "Government",
+    scope: "Holiday scratch-offs, broadcast spots",
+    year: "",
+    role: "Set Decorator",
+    designer: "Xavier Martinez",
+    dp: "Ricardo Diaz",
+    director: "Jonathan Zames",
+    production: "Electra",
+    location: "",
+    format: "Broadcast",
+    summary: "Holiday spots for Ohio Lottery scratch-offs, each a home taken over by the season: a living room where every surface, lamp and armchair is gift-wrapped, a basement crowded with vintage blow-mold snowmen, and a kitchen buried in stacked cookies, cakes and holiday baking.",
+    hero: { video: "video/ol-1.mp4", poster: "img/ol-1-poster.jpg", cap: "" },
+    sets: [
+      { title: "More spots", layout: "wide", images: [
+        { video: "video/ol-2.mp4", poster: "img/ol-2-poster.jpg", cap: "" },
+        { video: "video/ol-3.mp4", poster: "img/ol-3-poster.jpg", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "odot",
+    client: "Ohio Department of Transportation",
+    display: "ODOT <em>Move Over. Slow Down.</em>",
+    sector: "Government",
+    scope: "Move Over. Slow Down., public safety spot",
+    year: "",
+    role: "Production Designer",
+    location: "",
+    format: "Broadcast",
+    summary: "Public safety spots for the Ohio Department of Transportation that each introduce a roadside responder in their life off the clock before cutting to them at work at night: a firefighter at his own wedding in a candlelit church dressed with a floral arch and baby's-breath pew bouquets, a highway worker at the bowling alley, a state trooper at a backyard birthday party with balloons, bunting and a checkered table, and a roadside worker jamming with his band in the garage.",
+    hero: { video: "video/odot.mp4", poster: "img/odot-poster.jpg", alt: "Move Over. Slow Down.", cap: "" },
+    sets: [
+      { title: "More spots", layout: "wide", images: [
+        { video: "video/odot-highway.mp4", poster: "img/odot-highway-poster.jpg", alt: "Not Just a Highway Worker", cap: "" },
+        { video: "video/odot-trooper.mp4", poster: "img/odot-trooper-poster.jpg", alt: "Not Just a State Trooper", cap: "" },
+        { video: "video/odot-band.mp4", poster: "img/odot-band-poster.jpg", alt: "Roadside worker, band practice", cap: "" }
+      ]},
+      { title: "Stills", layout: "justified", images: [
+        { src: "img/odot-aisle.jpg", ar: 1.805, cap: "" },
+        { src: "img/odot-lanes.jpg", ar: 1.813, cap: "" },
+        { src: "img/odot-hands.jpg", ar: 1.850, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "stanleysteemer",
+    client: "Stanley Steemer",
+    display: "Stanley Steemer <em>Back to School</em>",
+    sector: "Services",
+    scope: "Back to School, broadcast spot",
+    year: "",
+    role: "Production Design and Wardrobe",
+    director: "Joel Hefner",
+    dp: "Corey Nabors",
+    location: "",
+    format: "Broadcast",
+    summary: "A back-to-school spot for Stanley Steemer built around a bright family home and the messes that come with it: a white kitchen mid-lemonade, muddy cleats across a cream carpet, a teen's game-day nacho spill, a baby's high chair, the family dog, and a light living room with a white sofa restored by the end.",
+    hero: { video: "video/stanley.mp4", poster: "img/stanley-poster.jpg", alt: "Stanley Steemer Back to School", cap: "" },
+    sets: []
+  },
+  {
+    id: "spotify",
+    client: "Spotify",
+    display: "Spotify <em>Sonic Science</em>",
+    sector: "Media & Entertainment",
+    scope: "Sonic Science, Spotify Advertising",
+    year: "",
+    role: "Production Designer",
+    director: "Jonathan Reisinger",
+    agency: "Archrival",
+    location: "",
+    format: "Digital video, stills",
+    summary: "Sonic Science for Spotify Advertising, a study on how audio fits into daily routines, brought to life through a run of lived-in moments: a family car, a bus stop, the grocery aisle, a gamer's neon-lit room, a bathroom vanity, a sunlit meditation corner, a family dinner table, a kitchen cook-along and a city rooftop.",
+    hero: { video: "video/spotify.mp4", poster: "img/spotify-poster.jpg", alt: "Spotify Sonic Science", cap: "" },
+    sets: [
+      { title: "Stills", layout: "justified", images: [
+        { src: "img/sp-couch.jpg", ar: 1.498, cap: "" },
+        { src: "img/sp-car.jpg", ar: 1.500, cap: "" },
+        { src: "img/sp-busstop.jpg", ar: 1.000, cap: "" },
+        { src: "img/sp-grocery.jpg", ar: 1.500, cap: "" },
+        { src: "img/sp-grocery-smile.jpg", ar: 1.500, cap: "" },
+        { src: "img/sp-gamer.jpg", ar: 1.374, cap: "" },
+        { src: "img/sp-grocery-2.jpg", ar: 0.879, cap: "" },
+        { src: "img/sp-phone.jpg", ar: 1.504, cap: "" },
+        { src: "img/sp-stoop.jpg", ar: 1.520, cap: "" },
+        { src: "img/sp-bathroom.jpg", ar: 1.506, cap: "" },
+        { src: "img/sp-meditate.jpg", ar: 1.506, cap: "" },
+        { src: "img/sp-hanger.jpg", ar: 1.494, cap: "" },
+        { src: "img/sp-dinner.jpg", ar: 1.500, cap: "" },
+        { src: "img/sp-kitchen.jpg", ar: 1.500, cap: "" },
+        { src: "img/sp-rooftop.jpg", ar: 2.168, cap: "" },
+        { src: "img/sp-sunlight.jpg", ar: 1.500, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "hamilton",
+    client: "Hamilton Devices",
+    display: "Hamilton Devices <em>Find Your Moment of Zen</em>",
+    sector: "Consumer Goods",
+    scope: "Find Your Moment of Zen, product films",
+    year: "",
+    role: "Creative Direction & Production Design",
+    dirdp: "Noah Higgins",
+    location: "",
+    format: "Digital & social video",
+    summary: "Short product films for Hamilton Devices, each set in a different personal space: a sunlit plant-filled room, an artist's apartment lit by a neon sign, a red lamp and a wall of records, and a working photo studio with seamless backdrop and softboxes.",
+    hero: { video: "video/hd-cole.mp4", poster: "img/hd-cole-poster.jpg", alt: "Plant room", cap: "" },
+    sets: [
+      { title: "More films", layout: "wide", images: [
+        { video: "video/hd-margaret.mp4", poster: "img/hd-margaret-poster.jpg", alt: "Artist's apartment", cap: "" },
+        { video: "video/hd-main.mp4", poster: "img/hd-main-poster.jpg", alt: "Photo studio", cap: "" }
+      ]},
+      { title: "Stills", layout: "justified", images: [
+        { src: "img/hd-profile.jpg", ar: 1.890, alt: "Profile by lamplight", cap: "" },
+        { src: "img/hd-hands.jpg", ar: 1.922, alt: "Hand on shoulder", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "condado",
+    client: "Condado Tacos",
+    display: "Condado <em>Tacos &amp; Tequila</em>",
+    sector: "Hospitality",
+    scope: "Unusual Your Usual, social spot",
+    year: "",
+    role: "Art Director",
+    dp: "Damian Wohrer",
+    director: "Craig Pentak",
+    production: "Kinopicz",
+    location: "",
+    format: "Social video",
+    summary: "Unusual Your Usual, a social spot for Condado Tacos & Tequila set inside the restaurant's mural-covered dining room: friends toasting over neon margaritas on bold geometric placemats, a book club over chips and salsa, a drag queen's victory high-five, and a server weaving through the room with a tray of frozen drinks. No matter the party.",
+    hero: { video: "video/condado.mp4", poster: "img/condado-poster.jpg", alt: "Unusual Your Usual", cap: "", vertical: true },
+    sets: []
+  },
+  {
+    id: "kroger",
+    client: "Kroger",
+    display: "Kroger <em>Holiday Cookie Challenge</em>",
+    sector: "Retail",
+    scope: "Holiday cookie challenge, vertical social",
+    year: "",
+    role: "Production Designer / Art Director",
+    dirdp: "Andy Madeleine",
+    production: "Even Odd",
+    location: "",
+    format: "Vertical social video",
+    summary: "A holiday cookie challenge for Kroger, made as vertical social content. In a few hours, a wood-walled photo studio kitchen became a bright white subway-tile set with floating shelves and holiday décor. A custom island was built strong enough to hold up to a full day of production, yet light and collapsible for transport. A week after the shoot, the studio was restored in a few hours with no damage. The project came in on time and under budget.",
+    hero: null,
+    sets: [
+      { title: "Social", layout: "justified", images: [
+        { video: "video/kroger-reel.mp4", poster: "img/kroger-reel-poster.jpg", ar: 0.699, alt: "Holiday cookie challenge reel", cap: "" },
+        { video: "video/kroger-winner.mp4", poster: "img/kroger-winner-poster.jpg", ar: 0.562, alt: "Winning cookie", cap: "" },
+        { video: "video/kroger-gooey.mp4", poster: "img/kroger-gooey-poster.jpg", ar: 0.562, alt: "Winning texture", cap: "" },
+        { video: "video/kroger-11sec.mp4", poster: "img/kroger-11sec-poster.jpg", ar: 0.536, alt: "11-second vertical", cap: "" }
+      ]},
+      { title: "The build", layout: "justified", images: [
+        { src: "img/kroger-before.jpg", ar: 0.796, alt: "The studio kitchen before", cap: "" },
+        { src: "img/kroger-sketch.jpg", ar: 1.330, alt: "Island sketch", cap: "" },
+        { src: "img/kroger-reference.jpg", ar: 0.950, alt: "Island reference", cap: "" },
+        { src: "img/kroger-garage.jpg", ar: 1.333, alt: "Island build", cap: "" },
+        { src: "img/kroger-island.jpg", ar: 0.750, alt: "The finished set", cap: "" },
+        { src: "img/kroger-bts.jpg", ar: 0.817, alt: "On set", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "flybyjing",
+    client: "Fly By Jing",
+    display: "Fly By <em>Jing</em>",
+    sector: "Consumer Goods",
+    scope: "Sichuan chili crisp, stills & social video",
+    year: "",
+    role: "Set / Food Stylist",
+    photographer: "Kyle Tracy",
+    agency: "Plata",
+    location: "",
+    format: "Still photography, social video",
+    summary: "An overhead tabletop spread for Fly By Jing Sichuan chili crisp, built as an American comfort-food table where the jars get passed around: a pepperoni slice, fried chicken in a paper-lined basket studded with pickle skewers, spears and chips on a ceramic tray, white bread on a scalloped red plate, vine tomatoes, a pot of basil, flaky salt and iced drinks on a warm stone surface with mustard linens. Plus saturated single-hero shots on crimson and orange: a spoonful of chili crisp over the jar, a glossy soup dumpling, a pepperoni slice dripping chili oil, and hand-pulled noodles over green tile.",
+    hero: { src: "img/fbj-spread.jpg", alt: "Fly By Jing tabletop spread", cap: "" },
+    sets: [
+      { title: "Campaign", layout: "justified", rowH: 350, images: [
+        { src: "img/fbj-jar.jpg", ar: 1.500, cap: "" },
+        { src: "img/fbj-bao.jpg", ar: 0.667, cap: "" },
+        { src: "img/fbj-dumpling.jpg", ar: 0.667, cap: "" },
+        { src: "img/fbj-pizza.jpg", ar: 0.667, cap: "" },
+        { video: "video/fbj.mp4", poster: "img/fbj-poster.jpg", ar: 0.5625, alt: "Fly By Jing social video", cap: "" },
+        { src: "img/fbj-noodles.jpg", ar: 1.500, cap: "" },
+        { src: "img/fbj-noodles-tile.jpg", ar: 0.667, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "goodculture",
+    client: "Good Culture",
+    display: "Good <em>Culture</em>",
+    sector: "Consumer Goods",
+    scope: "Brand campaign stills & social",
+    year: "",
+    role: "Art Director",
+    photographer: "Kyle Tracy",
+    agency: "Plata",
+    location: "",
+    format: "Still photography, social",
+    summary: "A bold, color-blocked campaign for Good Culture cottage cheese: a maximalist overhead spread on burnt orange, saturated studio sets in cobalt, chartreuse and lilac, everyday carry moments with yoga mats, tote bags and shopping baskets, a pickleball paddle serving tray, and styled breakfast tables from blueberry pancakes to an everything bagel with lox.",
+    hero: { src: "img/gc-spread.jpg", alt: "Overhead spread", cap: "" },
+    sets: [
+      { title: "Campaign", layout: "justified", images: [
+        { src: "img/gc-spoon.jpg", ar: 1.250, cap: "" },
+        { video: "video/gc.mp4", poster: "img/gc-poster.jpg", ar: 0.5625, alt: "Good Culture social", cap: "" },
+        { src: "img/gc-sweater.jpg", ar: 0.667, cap: "" },
+        { src: "img/gc-hands.jpg", ar: 1.500, cap: "" },
+        { src: "img/gc-yoga.jpg", ar: 1.250, cap: "" },
+        { src: "img/gc-drink.jpg", ar: 1.500, cap: "" },
+        { src: "img/gc-armful.jpg", ar: 0.667, cap: "" },
+        { src: "img/gc-basket.jpg", ar: 1.500, cap: "" },
+        { src: "img/gc-basket-2.jpg", ar: 0.667, cap: "" },
+        { src: "img/gc-lactose.jpg", ar: 0.667, cap: "" },
+        { src: "img/gc-tub.jpg", ar: 1.250, cap: "" },
+        { src: "img/gc-green-basket.jpg", ar: 1.500, cap: "" },
+        { src: "img/gc-pickleball.jpg", ar: 0.667, cap: "" },
+        { src: "img/gc-pancakes.jpg", ar: 1.500, cap: "" },
+        { src: "img/gc-bowl.jpg", ar: 1.250, cap: "" },
+        { src: "img/gc-bagel.jpg", ar: 1.500, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "harmlessharvest",
+    client: "Harmless Harvest",
+    display: "Harmless <em>Harvest</em>",
+    sector: "Consumer Goods",
+    scope: "Coconut yogurt campaign, photo and social video",
+    year: "",
+    role: "Set / Food Stylist",
+    photographer: "Kyle Tracy",
+    agency: "Plata",
+    location: "",
+    format: "Photo, social video",
+    summary: "A playful, color-blocked campaign for Harmless Harvest dairy-free coconut yogurt, cut as a moving grid: yogurt bowls piled with berries and granola, a strawberry salad, a crudité tray, checkerboard tabletop product shots, and stacked towers of cups against pink, teal and chartreuse backdrops.",
+    hero: { video: "video/hh.mp4", poster: "img/hh-poster.jpg", alt: "Harmless Harvest campaign", cap: "" },
+    sets: [
+      { title: "Campaign", layout: "justified", images: [
+        { src: "img/hh-04.jpg", ar: 0.665, cap: "" },
+        { src: "img/hh-13.jpg", ar: 0.667, cap: "" },
+        { src: "img/hh-01.jpg", ar: 1.500, cap: "" },
+        { src: "img/hh-10.jpg", ar: 0.666, cap: "" },
+        { src: "img/hh-11.jpg", ar: 1.506, cap: "" },
+        { src: "img/hh-03.jpg", ar: 0.666, cap: "" },
+        { src: "img/hh-05.jpg", ar: 1.516, cap: "" },
+        { src: "img/hh-12.jpg", ar: 1.522, cap: "" },
+        { src: "img/hh-06.jpg", ar: 0.673, cap: "" },
+        { src: "img/hh-02.jpg", ar: 1.512, cap: "" },
+        { video: "video/hh-2.mp4", poster: "img/hh-2-poster.jpg", ar: 0.5625, alt: "Harmless Harvest social spot", cap: "" },
+        { src: "img/hh-07.jpg", ar: 1.515, cap: "" },
+        { src: "img/hh-09.jpg", ar: 1.465, cap: "" },
+        { src: "img/hh-08.jpg", ar: 0.667, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "hilton",
+    client: "Hilton",
+    display: "Hilton <em>Hotels &amp; Resorts</em>",
+    sector: "Hospitality",
+    scope: "Internal brand standards, dining experience",
+    year: "",
+    role: "Food & Beverage Prop Stylist",
+    dp: "Eric Teti",
+    production: "South James",
+    note: "Images available upon request (under NDA).",
+    location: "",
+    format: "Internal brand standards",
+    summary: "Food and beverage prop styling for Hilton, the global hospitality company, on an internal brand standard for its hospitality dining experience.",
+    hero: { src: "img/hilton-logo.jpg", alt: "Hilton Hotels & Resorts", cap: "" },
+    sets: []
+  },
+  {
+    id: "sensoryoverload",
+    client: "Sensory Overload",
+    display: "Sensory <em>Overload</em>",
+    sector: "Film",
+    scope: "Feature documentary, Championing the Need for Sensory Inclusive Spaces",
+    year: "2025",
+    theatrical: "February 2025, Village East, New York City",
+    streaming: "Hulu",
+    role: "Production Department",
+    director: "Kiana Moore",
+    dp: "Nelson Hume",
+    cast: "Spike Lee",
+    ep: "Samantha Knowles",
+    production: "Epic Stories, Vox Creative",
+    agency: "Publicis Le One powered by Digitas, in association with Sensodyne",
+    location: "",
+    format: "Feature documentary",
+    summary: "A feature-length documentary on the needs of the neurodivergent and sensory sensitive communities, and the people changing mindsets around them: Lola Dada-Olley, a mother of two children on the autism spectrum; Dr. Jacob Dent, a dentist who designed his practice for sensory needs; and Burnett Grant, a young autism advocate. Academy Award winner Spike Lee shares his experience with dyslexia and what he learned after his son's diagnosis. Premiered at BrandStorytelling in Park City, Utah, with a limited theatrical run at the Village East in New York City.",
+    hero: { src: "img/sensory-poster.jpg", alt: "Sensory Overload poster", cap: "", vertical: true },
+    sets: []
+  },
+  {
+    id: "slay",
+    client: "Slay",
+    display: "<em>Slay</em>",
+    sector: "Film",
+    scope: "Feature film",
+    year: "2026",
+    role: "Art Department, Set Dec / Set Dresser",
+    dp: "Evan Butka",
+    director: "Kyra Gardner",
+    writer: "Jimmi Simpson & Kyra Gardner",
+    story: "Zoey Luna & Catherine Clark",
+    cast: "Aya Cash, Zoey Luna, Sean Giambrone, Beck Nolan, Ruby McCollister, Malina Pauli Weissman, Shawnee Smith, Talia Jackson, River Alexander",
+    location: "",
+    format: "Feature film, horror",
+    summary: "When her friend's murder shatters her carefully curated world, teen influencer Chloe Cruz and her friends escape to an isolated disco-themed cabin, where fractured friendships, growing paranoia, and a masked killer threaten to expose them. Official Selection, Screamfest Horror Film Festival 2026.",
+    hero: { src: "img/slay-poster.jpg", alt: "Slay poster", cap: "", vertical: true },
+    sets: [
+      { title: "Stills", layout: "justified", images: [
+        { src: "img/slay-still.jpg", ar: 1.759, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "yardsale",
+    client: "Yard Sale",
+    display: "Yard <em>Sale</em>",
+    sector: "Film",
+    scope: "Short film, dark comedy",
+    year: "2025",
+    role: "Set Decorator",
+    dp: "Jason Hambach",
+    director: "Karmen Dann",
+    cast: "Katie Ryan, Dana Fares",
+    production: "Green Blanket",
+    location: "",
+    format: "Short film",
+    summary: "A dark comedy about two estranged sisters gathering for the weekend after their mother's sudden death. In a stumbling reactionary effort to begin the foreign process of settling their mother's lapsed life\u2026 they have a yard sale. Best Acting Duo and Outstanding Achievement Award (Women Short), Indie Short Fest 2025; Semi-Finalist, Flickers' Rhode Island International Film Festival 2025.",
+    hero: { src: "img/ys-title.jpg", alt: "Yard Sale title card", cap: "" },
+    sets: [
+      { title: "Clip", layout: "justified", images: [
+        { video: "video/yardsale.mp4", poster: "img/ys-clip-poster.jpg", ar: 1.753, alt: "Yard Sale clip", cap: "" }
+      ]},
+      { title: "Stills", layout: "justified", rowH: 300, images: [
+        { src: "img/ys-poster.jpg", ar: 0.799, cap: "" },
+        { src: "img/ys-bedroom.jpg", ar: 1.501, cap: "" },
+        { src: "img/ys-table.jpg", ar: 0.667, cap: "" },
+        { src: "img/ys-living.jpg", ar: 1.802, cap: "" },
+        { src: "img/ys-frame.jpg", ar: 1.786, cap: "" },
+        { src: "img/ys-kitchen.jpg", ar: 1.790, cap: "" },
+        { src: "img/ys-scrubs.jpg", ar: 1.778, cap: "" },
+        { src: "img/ys-porch.jpg", ar: 1.802, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "billymilligan",
+    client: "Monsters Inside: The 24 Faces of Billy Milligan",
+    display: "Monsters Inside: <em>The 24 Faces of Billy Milligan</em>",
+    sector: "Film",
+    scope: "Netflix documentary series",
+    year: "2021",
+    role: "Production Department",
+    dp: "Marco Graziaplena",
+    director: "Olivier Megaton",
+    network: "Netflix",
+    location: "",
+    format: "Documentary series, 4 episodes",
+    summary: "A Netflix documentary series on Billy Milligan, the first person acquitted of a major crime on a dissociative identity disorder defense, told through his family, friends, doctors and the law enforcement professionals who knew the case. Can one man be guilty and innocent?",
+    hero: { src: "img/billy-poster.jpg", alt: "Monsters Inside poster", cap: "", vertical: true },
+    sets: []
+  },
+  {
+    id: "grace",
+    client: "Grace",
+    display: "<em>Grace</em>",
+    sector: "Film",
+    scope: "Short film",
+    year: "2025",
+    role: "Production Designer",
+    director: "Kah'lil Newton",
+    writer: "Kah'lil Newton",
+    cast: "Mackenzie Phalen, Jabari Johnson",
+    dp: "Sydney Lawson",
+    location: "",
+    format: "Short film",
+    release: "Film Shortage Selection and Best Picks of the Month, premiered June 2025",
+    summary: "A model named Grace is photographed in a dark room while a disembodied voice directs her. As the shoot goes on, the commands turn into pleas, and Grace suffers a nosebleed while she keeps performing. Inspired by Odilon Redon's painting The Two Graces, the film explores female beauty, the male gaze and the emotional labor of keeping a brave face.",
+    quote: "As a post-meta film GRACE aims to interrogate the artificial nature carefully crafted by the male gaze. While historically there are three Graces, our modern Grace is alone, on a quiet and cold set that feels just as artificial and claustrophobic as the shoot itself. We wanted to make our audience question how much we are willing to put women through to create \"beautiful\" images.",
+    quoteBy: "Kah'lil Newton, Writer / Director",
+    hero: { src: "img/grace-still.jpg", alt: "Grace, Film Shortage selection", cap: "", vertical: true },
+    sets: [
+      { title: "Clip", layout: "justified", images: [
+        { video: "video/grace.mp4", poster: "img/grace-clip-poster.jpg", ar: 1.350, alt: "Grace clip", cap: "" }
+      ]},
+      { title: "Stills", layout: "justified", images: [
+        { src: "img/grace-hesiod.jpg", ar: 1.778, cap: "" },
+        { src: "img/grace-bts.jpg", ar: 0.963, cap: "" },
+        { src: "img/grace-bestpicks.jpg", ar: 1.791, cap: "" },
+        { src: "img/grace-priest.jpg", ar: 0.957, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "mushroomheaven",
+    client: "Mushroom Heaven",
+    clientLabel: "Greg, Co-Founder of Mushroom Heaven",
+    display: "Mushroom <em>Heaven</em>",
+    sector: "Consumer Goods",
+    scope: "Founder's story, YouTube & vertical social",
+    year: "",
+    role: "Director, Creative Producer",
+    adprod: "Luke Sislowski",
+    videographer: "Niko Velasquezz",
+    location: "",
+    format: "YouTube, vertical social",
+    summary: "A founder's story for Mushroom Heaven, a functional mushroom supplement brand, told by co-founder Greg from his sunlit kitchen as he walks through the adaptogens, nootropics and six-mushroom blend behind the product. The shoot was cut for YouTube and a run of vertical social: a stir-it-into-your-morning coffee ritual, a hand-painted cloud wall mapping the mushrooms of a morning routine, and behind-the-scenes from the shoot day.",
+    hero: { video: "video/mh-founder.mp4", poster: "img/mh-founder-poster.jpg", alt: "Mushroom Heaven founder's story", cap: "" },
+    sets: [
+      { title: "Social", layout: "justified", images: [
+        { video: "video/mh-stir.mp4", poster: "img/mh-stir-poster.jpg", ar: 0.5625, alt: "Stir it into your morning", cap: "" },
+        { video: "video/mh-wall.mp4", poster: "img/mh-wall-poster.jpg", ar: 0.5625, alt: "My morning routine", cap: "" },
+        { src: "img/mh-subscribe.jpg", ar: 0.800, cap: "" },
+        { video: "video/mh-bts.mp4", poster: "img/mh-bts-poster.jpg", ar: 0.5625, alt: "Founder's shoot, behind the scenes", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "biglots",
+    client: "Big Lots",
+    display: "Big Lots <em>Bargains to Brag About</em>",
+    sector: "Retail",
+    scope: "Bargains to Brag About, broadcast spots",
+    year: "",
+    role: "Production Designer / Set Decorator",
+    production: "Green Blanket",
+    location: "",
+    format: "Broadcast & digital video",
+    summary: "Broadcast spots for Big Lots' Bargains to Brag About campaign, each built around a fully dressed room: a Halloween yard of skeletons, string lights and a throne, a fall living room styled with gourds and harvest décor, and a backyard gazebo with outdoor seating. Plus Big Lots vs. Big Box, a living-room-to-parking-lot spot.",
+    hero: { video: "video/bl-rec.mp4", poster: "img/bl-rec-poster.jpg", cap: "" },
+    sets: [
+      { title: "More spots", layout: "wide", images: [
+        { video: "video/bl-3.mp4", poster: "img/bl-3-poster.jpg", cap: "" },
+        { video: "video/bl-7.mp4", poster: "img/bl-7-poster.jpg", cap: "" },
+        { video: "video/bl-5.mp4", poster: "img/bl-5-poster.jpg", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "root",
+    client: "Root Insurance",
+    display: "Root <em>Insurance</em>",
+    sector: "Insurance",
+    scope: "Lifestyle stills campaign",
+    year: "",
+    role: "Set / Prop Stylist",
+    production: "Green Blanket",
+    location: "",
+    format: "Still photography",
+    summary: "Lifestyle stills for Root Insurance built around everyday life with the car: a retro diner booth breakfast, ice cream in the back seat, a driveway car wash water fight, a family pizza night in a lived-in kitchen, a grocery run, a desert hike, and the roadside emergency kit.",
+    hero: { src: "img/root-diner.jpg", alt: "Diner booth breakfast", cap: "" },
+    sets: [
+      { title: "Stills", layout: "justified", images: [
+        { src: "img/root-icecream.jpg", ar: 1.500, cap: "" },
+        { src: "img/root-tailgate.jpg", ar: 1.500, cap: "" },
+        { src: "img/root-carwash.jpg", ar: 1.500, cap: "" },
+        { src: "img/root-dinner.jpg", ar: 1.500, cap: "" },
+        { src: "img/root-pizza.jpg", ar: 1.500, cap: "" },
+        { src: "img/root-backseat.jpg", ar: 1.500, cap: "" },
+        { src: "img/root-groceries.jpg", ar: 1.500, cap: "" },
+        { src: "img/root-hike.jpg", ar: 1.500, cap: "" },
+        { src: "img/root-photo.jpg", ar: 1.500, cap: "" },
+        { src: "img/root-jumper.jpg", ar: 1.500, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "tennessee",
+    client: "University of Tennessee",
+    display: "University of Tennessee <em>The Edge</em>",
+    sector: "Education",
+    scope: "The Edge, brand spot & stills",
+    year: "",
+    role: "",
+    agency: "Archrival",
+    location: "",
+    format: "Broadcast & digital video, stills",
+    summary: "Campaign for the University of Tennessee's Edge program, moving through a year of campus life: a dorm room decked out in orange and white checkerboard, a lecture hall whiteboard covered wall to wall in equations, chemistry and biology labs, a printmaking studio, the library stacks, and the Rock.",
+    hero: { video: "video/ut.mp4", poster: "img/ut-poster.jpg", cap: "" },
+    sets: [
+      { title: "Stills", layout: "justified", images: [
+        { src: "img/ut-fan.jpg", ar: 1.013, cap: "" },
+        { src: "img/ut-whiteboard.jpg", ar: 1.785, cap: "" },
+        { src: "img/ut-lab.jpg", ar: 0.985, cap: "" },
+        { src: "img/ut-print.jpg", ar: 1.796, cap: "" },
+        { src: "img/ut-library.jpg", ar: 1.772, cap: "" },
+        { src: "img/ut-lawn.jpg", ar: 1.349, cap: "" },
+        { src: "img/ut-wall.jpg", ar: 2.042, cap: "" },
+        { src: "img/ut-handshake.jpg", ar: 1.500, cap: "" },
+        { src: "img/ut-engineer.jpg", ar: 1.500, cap: "" },
+        { src: "img/ut-lecture.jpg", ar: 1.434, cap: "" },
+        { src: "img/ut-microscope.jpg", ar: 1.500, cap: "" },
+        { src: "img/ut-pickleball.jpg", ar: 1.990, cap: "" },
+        { src: "img/ut-cafe.jpg", ar: 2.131, cap: "" },
+        { src: "img/ut-walk.jpg", ar: 1.500, cap: "" },
+        { src: "img/ut-advisor.jpg", ar: 1.500, cap: "" },
+        { src: "img/ut-stairs.jpg", ar: 1.500, cap: "" },
+        { src: "img/ut-rockytop.jpg", ar: 1.500, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "dex",
+    client: "DEX",
+    display: "Dex <em>Language Discovery Camera</em>",
+    sector: "Consumer Goods",
+    scope: "Product & lifestyle stills",
+    year: "",
+    role: "Set / Prop Stylist",
+    director: "Rachel Liu",
+    photographer: "Megan Cody",
+    location: "",
+    format: "Still photography",
+    summary: "Product and lifestyle stills for Dex, a language-learning camera for kids ages 3 to 8. Families explore together in a backyard tent, along a trail, at a picnic and a lakeside, and in the glow of an aquarium, with product still life on a paint-splattered worktable, a sunny kitchen counter and an art desk.",
+    hero: { src: "img/dex-tent.jpg", alt: "Dex camera in a backyard tent", cap: "" },
+    sets: [
+      { title: "Stills", layout: "justified", images: [
+        { src: "img/dex-porthole.jpg", ar: 0.667, cap: "" },
+        { src: "img/dex-reflection.jpg", ar: 0.667, cap: "" },
+        { src: "img/dex-aquarium.jpg", ar: 1.000, cap: "" },
+        { src: "img/dex-tank.jpg", ar: 1.000, cap: "" },
+        { src: "img/dex-trail.jpg", ar: 1.000, cap: "" },
+        { src: "img/dex-boys.jpg", ar: 1.000, cap: "" },
+        { src: "img/dex-banana.jpg", ar: 1.000, cap: "" },
+        { src: "img/dex-picnic.jpg", ar: 1.000, cap: "" },
+        { src: "img/dex-palm.jpg", ar: 1.000, cap: "" },
+        { src: "img/dex-lake.jpg", ar: 1.000, cap: "" },
+        { src: "img/dex-swing.jpg", ar: 1.000, cap: "" },
+        { src: "img/dex-lemon.jpg", ar: 1.000, cap: "" },
+        { src: "img/dex-egg.jpg", ar: 1.000, cap: "" },
+        { src: "img/dex-paints.jpg", ar: 1.000, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "kay",
+    client: "Kay Jewelers",
+    display: "Kay <em>Jewelers</em>",
+    sector: "Retail",
+    scope: "Bridal & fine jewelry stills",
+    year: "",
+    role: "Set / Prop Stylist",
+    wardrobe: "Maggie Kaiser",
+    photographer: "Mock Tuna",
+    production: "Mock Tuna",
+    location: "",
+    format: "Still photography",
+    summary: "Bridal and fine jewelry stills for Kay Jewelers, styled in two moods: sunlit seaside wedding moments with garden-rose and dahlia bouquets, and a dark, moody bar with crystal coupes and whiskey glasses that let the stones catch the light.",
+    hero: { src: "img/kay-embrace.jpg", alt: "Seaside wedding embrace", cap: "" },
+    sets: [
+      { title: "Stills", layout: "justified", images: [
+        { src: "img/kay-whiskey.jpg", ar: 1.504, cap: "" },
+        { src: "img/kay-kiss.jpg", ar: 1.500, cap: "" },
+        { src: "img/kay-dahlias.jpg", ar: 1.000, cap: "" },
+        { src: "img/kay-bouquet.jpg", ar: 1.788, cap: "" },
+        { src: "img/kay-coupe.jpg", ar: 1.496, cap: "" },
+        { src: "img/kay-hands.jpg", ar: 1.500, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "rh",
+    client: "Restoration Hardware",
+    display: "Restoration <em>Hardware</em>",
+    sector: "Retail",
+    scope: "Gallery interiors, rooftop, wine bar",
+    year: "",
+    role: "Set Decoration & Styling",
+    photographer: "Mark Hug (VP / Photographer), Jaime Aguilar",
+    producer: "Jonathan Evans",
+    location: "Columbus, OH",
+    format: "Still photography",
+    summary: "Styled room sets and hospitality spaces inside the RH Columbus gallery: the living room vignettes, the wine bar and the rooftop restaurant, plus an on-location portrait for RH leadership.",
+    hero: { src: "img/rh-rooftop.jpg", alt: "Rooftop restaurant", cap: "" },
+    sets: [
+      { title: "Gallery & hospitality", layout: "wide", images: [
+        { src: "img/rh-living.jpg", alt: "Living room vignette", cap: "" },
+        { src: "img/rh-living-2.jpg", alt: "Living room vignette", cap: "" },
+        { src: "img/rh-bar.jpg", alt: "RH Wine Bar", cap: "" },
+        { src: "img/rh-portrait.jpg", cap: "Leadership portrait, Gary Friedman" }
+      ]}
+    ]
+  },
+  {
+    id: "asi",
+    client: "American Signature Furniture",
+    display: "Designer Looks <em>Furniture</em>",
+    sector: "Retail",
+    scope: "Catalog, lookbook & paid social",
+    year: "2021–22",
+    role: "Set Decoration & Styling",
+    location: "Columbus, OH",
+    format: "Print catalog, digital, social",
+    summary: "Room sets for American Signature's Designer Looks brand, carried from the Fall 2022 lookbook and the Holiday Wishbook into paid social. Living rooms, dining rooms and bedrooms across more than a dozen collections, including Plush, Nest, Ethan, Collin, Windsor Park, Charthouse and Brooke Harbor.",
+    hero: { src: "img/dl-wishbook.jpg", alt: "Holiday Wishbook spread", cap: "" },
+    sets: [
+      { title: "Studio sets", layout: "wide", images: [
+        { src: "img/ad-accent-chairs.jpg", alt: "New accent chairs", cap: "" },
+        { src: "img/dl-wish-sofas.jpg", alt: "Wishbook: bouclé seating", cap: "" },
+        { src: "img/dl-wish-tables.jpg", alt: "Wishbook: marble, glass and teak tables", cap: "" },
+        { src: "img/dl-eco.jpg", alt: "Eco-Performance fabrics", cap: "" }
+      ]},
+      { title: "Covers & openers", layout: "wide", images: [
+        { src: "img/dl-cover.jpg", alt: "Fall 2022 lookbook cover", cap: "" },
+        { src: "img/dl-wishbook-cover.jpg", alt: "Holiday Wishbook 2022 cover", cap: "" },
+        { src: "img/dl-intro.jpg", alt: "New season, new house rules", cap: "" },
+        { src: "img/dl-plush-happy.jpg", alt: "Plush sectional opener", cap: "" }
+      ]},
+      { title: "Living rooms", layout: "wide", images: [
+        { src: "img/dl-plush-holiday.jpg", alt: "Plush sectional, holiday game room", cap: "" },
+        { src: "img/dl-plush.jpg", alt: "Plush sectional", cap: "" },
+        { src: "img/dl-boucle.jpg", alt: "Plush in bouclé", cap: "" },
+        { src: "img/dl-nest.jpg", alt: "Nest sectional: build your homebody hub", cap: "" },
+        { src: "img/dl-nest-2.jpg", alt: "Nest sectional, family room", cap: "" },
+        { src: "img/dl-ethan.jpg", alt: "Ethan sectional with teakwood", cap: "" },
+        { src: "img/dl-collin.jpg", alt: "Collin sectional", cap: "" },
+        { src: "img/dl-bowery.jpg", alt: "Bowery sectional", cap: "" },
+        { src: "img/dl-winston.jpg", alt: "Winston sectional", cap: "" },
+        { src: "img/dl-haven.jpg", alt: "Haven media sofa", cap: "" },
+        { src: "img/dl-windsor-2.jpg", alt: "Windsor Park: recliners can look like this", cap: "" },
+        { src: "img/dl-windsor.jpg", alt: "Windsor Park leather reclining", cap: "" },
+        { src: "img/dl-brookedale.jpg", alt: "Brookdale reclining", cap: "" },
+        { src: "img/dl-brookdale-2.jpg", alt: "Brookdale reclining, lifestyle", cap: "" },
+        { src: "img/dl-aloft.jpg", alt: "Aloft reclining", cap: "" },
+        { src: "img/dl-happy.jpg", alt: "Happy leather reclining", cap: "" },
+        { src: "img/dl-happy-2.jpg", alt: "Happy leather reclining, lifestyle", cap: "" }
+      ]},
+      { title: "Dining & bedroom", layout: "wide", images: [
+        { src: "img/dl-charthouse.jpg", alt: "Charthouse collection", cap: "" },
+        { src: "img/dl-brooke-harbor.jpg", alt: "Brooke Harbor dining and bedroom", cap: "" },
+        { src: "img/dl-beds.jpg", alt: "Upholstered beds", cap: "" },
+        { src: "img/dl-bedroom.jpg", alt: "Decker bedroom", cap: "" }
+      ]},
+      { title: "Paid social", layout: "tall", images: [
+        { src: "img/ad-wishbook-kids.jpg", alt: "Holiday Wishbook launch", cap: "" },
+        { src: "img/ad-gifts.jpg", alt: "Game-changing gifts", cap: "" },
+        { src: "img/ad-small-apartment.jpg", alt: "Small apartment living room", cap: "" },
+        { src: "img/ad-plush.jpg", alt: "Plush", cap: "" },
+        { src: "img/ad-bliss.jpg", alt: "Bliss", cap: "" },
+        { src: "img/ad-sierra.jpg", alt: "Sierra", cap: "" },
+        { src: "img/ad-windsor.jpg", alt: "Windsor Park", cap: "" },
+        { src: "img/ad-holiday.jpg", alt: "Holiday: All Is Cozy, All Is Bright", cap: "" },
+        { src: "img/ad-haven.jpg", alt: "Haven", cap: "" },
+        { src: "img/ad-winston.jpg", alt: "Winston", cap: "" },
+        { src: "img/ad-decker.jpg", alt: "Cozy guest rooms", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "beerbarrel",
+    client: "Beer Barrel",
+    display: "Beer <em>Barrel</em>",
+    sector: "Hospitality",
+    scope: "Menu photography, print, web & social",
+    year: "",
+    role: "Set / Food Stylist",
+    photographer: "Kyle Tracy",
+    location: "",
+    format: "Print, web & social",
+    summary: "Menu photography for Beer Barrel, styled two ways: moody bar-lit hero shots against wood paneling (an armful of bottles and cans, a bar-top cocktail lineup with a Beer Barrel–tagged Bloody Mary, a stacked Reuben with a pint, a deli sub in front of the arcade lights) and clean tabletop studio shots on white, from a forkful of spaghetti to a slice of layer cake and a lineup of frozen cocktails for social.",
+    hero: { src: "img/bb-reuben.jpg", alt: "Reuben and a pint", cap: "" },
+    sets: [
+      { title: "Menu & social", layout: "justified", images: [
+        { src: "img/bb-beers.jpg", ar: 1.500, cap: "" },
+        { src: "img/bb-drinks.jpg", ar: 0.472, cap: "" },
+        { src: "img/bb-sub.jpg", ar: 0.667, cap: "" },
+        { video: "video/bb.mp4", poster: "img/bb-poster.jpg", ar: 0.5625, alt: "Beer Barrel cocktails", cap: "" },
+        { src: "img/bb-cake.jpg", ar: 1.500, cap: "" },
+        { src: "img/bb-pasta.jpg", ar: 1.500, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "babylife",
+    client: "Babylife Organics",
+    display: "Babylife <em>Organics</em>",
+    sector: "Consumer Goods",
+    scope: "Organic baby food campaign, social, web & signage",
+    year: "",
+    role: "Stylist",
+    photographer: "Hannah Spencer",
+    agency: "Plata",
+    location: "",
+    format: "Social, web, signage",
+    summary: "Campaign imagery for Babylife Organics regenerative organic baby food: families outdoors on picnic blankets in the grass, a Father's Day walk with baby in a carrier, first spoonfuls and pouches in small hands, and a sunlit kitchen, dressed in a soft palette of butter yellow, sage, lavender and washed denim.",
+    hero: null,
+    sets: [
+      { title: "Social", layout: "justified", images: [
+        { video: "video/baby-4.mp4", poster: "img/baby-4-poster.jpg", ar: 0.705, alt: "Babylife Organics reel", cap: "" },
+        { video: "video/baby-3.mp4", poster: "img/baby-3-poster.jpg", ar: 0.705, alt: "Babylife Organics reel", cap: "" },
+        { video: "video/baby-1.mp4", poster: "img/baby-1-poster.jpg", ar: 0.743, alt: "Babylife Organics reel", cap: "" },
+        { video: "video/baby-5.mp4", poster: "img/baby-5-poster.jpg", ar: 0.705, alt: "Babylife Organics reel", cap: "" },
+        { video: "video/baby-2.mp4", poster: "img/baby-2-poster.jpg", ar: 0.705, alt: "Babylife Organics reel", cap: "" }
+      ]},
+      { title: "Stills", layout: "justified", images: [
+        { src: "img/baby-spoon.jpg", ar: 0.883, cap: "" },
+        { src: "img/baby-grass.jpg", ar: 1.539, cap: "" },
+        { src: "img/baby-foot.jpg", ar: 0.807, cap: "" },
+        { src: "img/baby-transparency.jpg", ar: 1.137, cap: "" },
+        { src: "img/baby-siblings.jpg", ar: 0.770, cap: "" },
+        { src: "img/baby-fathersday.jpg", ar: 0.679, cap: "" },
+        { src: "img/baby-pouch.jpg", ar: 1.136, cap: "" },
+        { src: "img/baby-kitchen.jpg", ar: 0.925, cap: "" },
+        { src: "img/baby-jar.jpg", ar: 1.005, cap: "" },
+        { src: "img/baby-giveaway.jpg", ar: 0.856, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "ily",
+    client: "I and love and you",
+    display: "I and love <em>and you</em>",
+    sector: "Consumer Goods",
+    scope: "ILY dog food, lifestyle & product stills",
+    year: "",
+    role: "Wardrobe, Set, Food Stylist",
+    photographer: "Kyle Tracy",
+    agency: "Plata",
+    location: "",
+    format: "Still photography, stop motion, social",
+    summary: "Lifestyle and product imagery for I and love and you (ILY) dog food: a sunlit entryway homecoming with a pup nosing into a canvas tote of treats, then ingredient-forward tabletops on blue speckled granite and butter-yellow tile, with raw lamb chops, eggs, peas and sweet potato beside Baked & Saucy bowls, a just-add-water gravy pour and a Top That Thrive topper on a sage green counter.",
+    hero: { src: "img/ily-entry.jpg", alt: "Homecoming in the entryway", cap: "" },
+    sets: [
+      { title: "Stills", layout: "justified", rowH: 300, images: [
+        { src: "img/ily-dog.jpg", ar: 1.500, cap: "" },
+        { src: "img/ily-gravy.jpg", ar: 0.809, cap: "" },
+        { src: "img/ily-topper.jpg", ar: 1.500, cap: "" },
+        { src: "img/ily-toppers.jpg", ar: 0.807, cap: "" },
+        { src: "img/ily-overhead.jpg", ar: 1.250, cap: "" },
+        { video: "video/ily-stir.mp4", poster: "img/ily-stir-poster.jpg", ar: 1.250, alt: "Baked & Saucy stir, stop motion", cap: "" },
+        { video: "video/ily-pour.mp4", poster: "img/ily-pour-poster.jpg", ar: 1.332, alt: "Just add water, stop motion", cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "littletons",
+    client: "Littleton's Market",
+    display: "Littleton's <em>Market</em>",
+    sector: "Hospitality",
+    scope: "Food & Beverage Spec, products sourced from Littleton's Market",
+    year: "",
+    role: "Creative Direction, Set / Beverage Stylist",
+    photographer: "Kyle Tracy",
+    producer: "Kahlil Newton, Brooke Vaughn-Saige",
+    culinary: "Chef Joseph, Hillcrest Supper Club",
+    location: "",
+    format: "Food & Beverage Spec, still photography",
+    summary: "A food and beverage spec built around specialty products sourced from Littleton's Market: a backlit spritz in a salt-crusted globe glass with leafy mandarins under a fine mist, a non-alcoholic negroni poured against green tile and trailing pothos, an Italian aranciata buried in crushed ice, citrus and salt tins on seamless white, and a plated course of cured mackerel, cucumber ribbons and kiwi from Chef Joseph of Hillcrest Supper Club.",
+    hero: { src: "img/lm-mackerel.jpg", alt: "Cured mackerel with cucumber and kiwi", cap: "", vertical: true },
+    sets: [
+      { title: "Stills", layout: "justified", rowH: 330, images: [
+        { src: "img/lm-aranciata.jpg", ar: 0.801, cap: "" },
+        { src: "img/lm-negroni.jpg", ar: 0.800, cap: "" },
+        { src: "img/lm-pour.jpg", ar: 0.800, cap: "" },
+        { src: "img/lm-citrus.jpg", ar: 0.800, cap: "" },
+        { src: "img/lm-salt.jpg", ar: 1.256, cap: "" }
+      ]}
+    ]
+  },
+  {
+    id: "sessions",
+    client: "Sessions",
+    display: "<em>Sessions</em>",
+    sector: "Media & Entertainment",
+    scope: "Live music session series",
+    year: "",
+    role: "Production Designer",
+    dp: "Noah Higgins",
+    location: "",
+    format: "Live music video series",
+    summary: "A live music session series, each episode built as its own room: a plum-curtained studio with a green banker's lamp, headphones and vocal mics for the OG Players, and a warm, lived-in space with an acoustic guitar, drum kit, a single practical lamp, a vintage hat on the wall and trailing plants for the Cedar Brothers. Each set is designed to feel like the band invited you into their room.",
+    hero: null,
+    sets: [
+      { title: "The OG Players", layout: "justified", images: [
+        { video: "video/sessions-og.mp4", poster: "img/sessions-og-poster.jpg", ar: 1.890, alt: "Sessions: The OG Players", cap: "" }
+      ]},
+      { title: "The Cedar Brothers", layout: "justified", images: [
+        { video: "video/sessions.mp4", poster: "img/sessions-poster.jpg", ar: 1.853, alt: "Sessions: The Cedar Brothers", cap: "" }
+      ]}
+    ]
+  }
+];
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+const pad = n => String(n).padStart(2, "0");
+let filter = "All";
+
+function renderIndex(){
+  const sectors = ["All", ...new Set(PROJECTS.map(p => p.sector))];
+  document.getElementById("chips").innerHTML = sectors.map(s =>
+    `<button class="chip" aria-pressed="${s === filter}" data-s="${esc(s)}">${esc(s)}</button>`).join("");
+  document.getElementById("rows").innerHTML = PROJECTS.map((p, i) => ({ p, i }))
+    .filter(({ p }) => filter === "All" || p.sector === filter)
+    .map(({ p, i }) => `<li class="row"><a href="#${p.id}">
+      <span class="c">${esc(p.client)}</span>
+      <span class="s">${esc(p.sector)}</span><span class="d">${esc(p.scope)}</span></a></li>`).join("");
+  document.querySelectorAll(".case").forEach(el => { el.hidden = !(filter === "All" || el.dataset.sector === filter); });
+}
+
+const all = [];
+function tile(img){
+  if (img.video) return `<figure class="tile vid"${img.ar ? ` data-ar="${img.ar}"` : ""}><video src="${img.video}" poster="${img.poster}" controls muted loop playsinline autoplay preload="metadata" aria-label="${esc(img.alt || img.cap || "video")}"${img.ar ? ` style="aspect-ratio:${img.ar}"` : ""}></video>${img.cap ? `<figcaption>${esc(img.cap)}</figcaption>` : ""}</figure>`;
+  const k = all.push(img) - 1;
+  const fx = (img.ar ? ` data-ar="${img.ar}"` : "") + (img.br ? ` data-br="1"` : "");
+  return `<figure class="tile"${fx}><button data-k="${k}" aria-label="View ${esc(img.alt || img.cap || "image")}"><img src="${img.src}" alt="${esc(img.alt || img.cap)}" loading="lazy"></button>${img.cap ? `<figcaption>${esc(img.cap)}</figcaption>` : ""}</figure>`; }
+
+document.getElementById("cases").innerHTML = PROJECTS.map((p, i) => {
+  const hk = !p.hero || p.hero.video ? -1 : all.push(p.hero) - 1;
+  const meta = [[p.sector === "Film" ? "Title" : "Client", p.clientLabel || p.client], ["Sector", p.sector], ["Role", p.role], ["Co-Creative Director", p.cocd], ["Written & Directed by", p.writerdirector], [p.sector === "Film" ? "Cinematographer" : "Director of Photography", p.dp], ["Starring", p.cast], ["Distributor", p.distributor], ["Art Director / Set Designer", p.artdirector], ["Production Designer", p.designer], ["Art Director", p.ad], ["AD / Producer", p.adprod], ["Videographer", p.videographer], ["Director", p.director], ["Director / DP", p.dirdp], ["Assistant Director", p.asstdir], ["Written by", p.writer], ["Story by", p.story], ["Photographer", p.photographer], ["Producer", p.producer], ["Executive Producer", p.ep], ["Culinary", p.culinary], ["Agency", p.agency], ["Wardrobe", p.wardrobe], ["Production", p.production], ["Network", p.network], ["Format", p.format], ["Location", p.location], ["Year", p.year], ["Release", p.release], ["Theatrical Release", p.theatrical], ["Now Streaming", p.streaming]]
+    .filter(([, v]) => v).map(([k, v]) => `<div><dt class="label">${k}</dt><dd>${esc(v)}</dd></div>`).join("");
+  return `<article class="case" id="${p.id}" data-sector="${esc(p.sector)}"><div class="wrap">
+    ${!p.hero ? '' : p.hero.video
+      ? `<figure class="hero${p.hero.vertical ? ' vertical' : ''}"><video src="${p.hero.video}" poster="${p.hero.poster}" controls muted autoplay loop playsinline preload="metadata" aria-label="${esc(p.hero.alt || p.hero.cap || p.client)}"></video>${p.hero.cap ? `<figcaption class="label">${esc(p.hero.cap)}</figcaption>` : ""}</figure>`
+      : `<figure class="hero${p.hero.vertical ? ' vertical' : ''}"><button data-k="${hk}" aria-label="View ${esc(p.hero.alt || p.hero.cap)}"><img src="${p.hero.src}" alt="${esc(p.hero.alt || p.hero.cap)}"></button></figure>`}
+    <div class="case-head">
+      <div><p class="label">${esc(p.scope)}</p><h3>${p.display}</h3><p class="summary">${esc(p.summary)}</p>${p.press ? `<blockquote class="pull press"><p>“${esc(p.press)}”</p><footer class="label">${esc(p.pressBy)}</footer></blockquote>` : ""}${p.quote ? `<blockquote class="pull"><p>${esc(p.quote)}</p><footer class="label">${esc(p.quoteBy || ("Brooke Vaughn-Saige, " + p.role))}</footer></blockquote>` : ""}</div>
+      <dl class="slate">${meta}</dl>
+    </div>
+    ${p.sets.map(s => `<div class="set-title"><span class="label">${esc(s.title)}</span></div>
+      <div class="gallery ${s.layout === "tall" ? "tall" : s.layout === "reels" ? "reels" : s.layout === "justified" ? "justified" : ""}"${s.rowH ? ` data-rowh="${s.rowH}"` : ""}>${s.images.map(tile).join("")}</div>`).join("")}
+    ${p.note ? `<div class="set-title"><span class="label">Images</span></div><p class="nda">${esc(p.note)}</p>` : ""}
+  </div></article>`;
+}).join("");
+
+renderIndex();
+
+/* Justified rows: every row fills the width; a short last row folds into the one above */
+function justify(g){
+  const W = g.clientWidth, gap = 14, T = W < 600 ? 150 : (+g.dataset.rowh || 230);
+  const tiles = [...g.querySelectorAll(":scope > .tile")];
+  if (!W || !tiles.length) return;
+  const rows = []; let cur = [], sum = 0;
+  for (const t of tiles){ if (t.dataset.br && cur.length){ rows.push(cur); cur = []; sum = 0; } const ar = +t.dataset.ar || 1.5; cur.push(t); sum += ar;
+    if (sum * T + gap * (cur.length - 1) >= W){ rows.push(cur); cur = []; sum = 0; } }
+  if (cur.length){ const w = cur.reduce((a,t)=>a + (+t.dataset.ar || 1.5), 0) * T;
+    if (rows.length && w < W * 0.55) rows[rows.length - 1].push(...cur); else rows.push(cur); }
+  for (const r of rows){
+    const sa = r.reduce((a,t)=>a + (+t.dataset.ar || 1.5), 0);
+    const h = (W - gap * (r.length - 1) - 1) / sa;
+    r.forEach(t => { t.style.flex = "none"; t.style.width = ((+t.dataset.ar || 1.5) * h) + "px"; });
+  }
+}
+const jgs = document.querySelectorAll(".gallery.justified");
+jgs.forEach(justify);
+if ("ResizeObserver" in window){ const ro = new ResizeObserver(es => es.forEach(e => justify(e.target))); jgs.forEach(g => ro.observe(g)); }
+else window.addEventListener("resize", () => jgs.forEach(justify));
+document.getElementById("chips").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return; filter = b.dataset.s; renderIndex();
+});
+
+/* Lightbox */
+const lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img");
+let cur = 0, lastFocus = null;
+function show(k){ cur = (k + all.length) % all.length; lbImg.src = all[cur].src; lbImg.alt = all[cur].alt || all[cur].cap;
+  document.getElementById("lb-cap").textContent = all[cur].cap;
+  document.getElementById("lb-count").textContent = `${pad(cur + 1)} / ${pad(all.length)}`; }
+function open(k){ lastFocus = document.activeElement; show(k); lb.hidden = false; document.getElementById("lb-close").focus(); }
+function close(){ lb.hidden = true; lastFocus && lastFocus.focus(); }
+document.addEventListener("click", e => { const b = e.target.closest("[data-k]"); if (b) open(+b.dataset.k); });
+document.getElementById("lb-close").onclick = close;
+document.getElementById("lb-prev").onclick = () => show(cur - 1);
+document.getElementById("lb-next").onclick = () => show(cur + 1);
+lb.addEventListener("click", e => { if (e.target === lb || e.target.classList.contains("lb-stage")) close(); });
+document.addEventListener("keydown", e => { if (lb.hidden) return;
+  if (e.key === "Escape") close(); if (e.key === "ArrowRight") show(cur + 1); if (e.key === "ArrowLeft") show(cur - 1); });
+</script>
