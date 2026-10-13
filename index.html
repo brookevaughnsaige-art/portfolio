@@ -45,6 +45,11 @@ nav a:hover{color:var(--ink)}
 .intro h1 em{font-style:italic}
 .intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:clamp(24px,5vw,80px);margin-top:0;align-items:start}
 .intro-copy{max-width:880px}
+.intro-row{display:flex;gap:clamp(32px,6vw,96px);align-items:flex-start;justify-content:space-between}
+.intro-row .intro-copy{flex:1 1 auto;min-width:0}
+.portrait{flex:0 0 clamp(180px,18vw,250px);margin:0}
+.portrait img{display:block;width:100%;height:auto}
+@media (max-width:760px){.intro-row{flex-direction:column-reverse;gap:28px}.portrait{flex:none;width:150px}}
 .intro-copy > p:first-child{margin:0 0 clamp(28px,4vw,44px);max-width:62ch;font-size:clamp(18px,1.6vw,22px);color:var(--ink)}
 .intro .disc-lead{margin:0 0 6px;font-size:11px;color:var(--muted)}
 .spec{list-style:none;margin:0;padding:0;columns:2 300px;column-gap:40px;font-family:var(--mono);font-size:12px;line-height:1.5;letter-spacing:.08em;text-transform:uppercase}
@@ -149,10 +154,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 <main id="top">
   <section class="wrap intro">
     <h1 class="sr-only">Brooke Vaughn-Saige portfolio</h1>
+    <div class="intro-row">
     <div class="intro-copy">
       <p>Creative for still photography, film and video. I work with producers, agencies, in-house brand teams and clients of every size, from start-ups to global brands.</p>
       <p class="label disc-lead">I specialize in</p>
       <ul class="spec"><li>Production Design for Film, Video &amp; Still Photography</li><li>Art Direction</li><li>Hybrid Docu-Narratives</li><li>Creative Direction</li><li>Set Decoration</li><li>F&amp;B / Set Styling</li><li>Prop &amp; Set Dec Shopper / Buyer</li><li>Experiential Marketing &amp; Guest Experience Design</li></ul>
+    </div>
+    <figure class="portrait"><img src="img/brooke-portrait.jpg" alt="Brooke Vaughn-Saige" width="640" height="952"></figure>
     </div>
   </section>
 
