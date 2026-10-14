@@ -1378,7 +1378,7 @@ function renderIndex(){
 
 const all = [];
 function tile(img){
-  if (img.video) return `<figure class="tile vid"${img.ar ? ` data-ar="${img.ar}"` : ""}><video src="${img.video}" poster="${img.poster}" controls muted loop playsinline autoplay preload="metadata" aria-label="${esc(img.alt || img.cap || "video")}"${img.ar ? ` style="aspect-ratio:${img.ar}"` : ""}></video>${img.cap ? `<figcaption>${esc(img.cap)}</figcaption>` : ""}</figure>`;
+  if (img.video) return `<figure class="tile vid"${img.ar ? ` data-ar="${img.ar}"` : ""}><video src="${img.video}" poster="${img.poster}" controls muted loop playsinline preload="none" data-auto aria-label="${esc(img.alt || img.cap || "video")}"${img.ar ? ` style="aspect-ratio:${img.ar}"` : ""}></video>${img.cap ? `<figcaption>${esc(img.cap)}</figcaption>` : ""}</figure>`;
   const k = all.push(img) - 1;
   const fx = (img.ar ? ` data-ar="${img.ar}"` : "") + (img.br ? ` data-br="1"` : "");
   return `<figure class="tile"${fx}><button data-k="${k}" aria-label="View ${esc(img.alt || img.cap || "image")}"><img src="${img.src}" alt="${esc(img.alt || img.cap)}" loading="lazy"></button>${img.cap ? `<figcaption>${esc(img.cap)}</figcaption>` : ""}</figure>`; }
@@ -1389,7 +1389,7 @@ document.getElementById("cases").innerHTML = PROJECTS.map((p, i) => {
     .filter(([, v]) => v).map(([k, v]) => `<div><dt class="label">${k}</dt><dd>${esc(v)}</dd></div>`).join("");
   return `<article class="case" id="${p.id}" data-sector="${esc(p.sector)}"><div class="wrap">
     ${!p.hero ? '' : p.hero.video
-      ? `<figure class="hero${p.hero.vertical ? ' vertical' : ''}"><video src="${p.hero.video}" poster="${p.hero.poster}" controls muted autoplay loop playsinline preload="metadata" aria-label="${esc(p.hero.alt || p.hero.cap || p.client)}"></video>${p.hero.cap ? `<figcaption class="label">${esc(p.hero.cap)}</figcaption>` : ""}</figure>`
+      ? `<figure class="hero${p.hero.vertical ? ' vertical' : ''}"><video src="${p.hero.video}" poster="${p.hero.poster}" controls muted loop playsinline preload="none" data-auto aria-label="${esc(p.hero.alt || p.hero.cap || p.client)}"></video>${p.hero.cap ? `<figcaption class="label">${esc(p.hero.cap)}</figcaption>` : ""}</figure>`
       : `<figure class="hero${p.hero.vertical ? ' vertical' : ''}"><button data-k="${hk}" aria-label="View ${esc(p.hero.alt || p.hero.cap)}"><img src="${p.hero.src}" alt="${esc(p.hero.alt || p.hero.cap)}"></button></figure>`}
     <div class="case-head">
       <div><p class="label">${esc(p.scope)}</p><h3>${p.display}</h3><p class="summary">${esc(p.summary)}</p>${p.press ? `<blockquote class="pull press"><p>“${esc(p.press)}”</p><footer class="label">${esc(p.pressBy)}</footer></blockquote>` : ""}${p.quote ? `<blockquote class="pull"><p>${esc(p.quote)}</p><footer class="label">${esc(p.quoteBy || ("Brooke Vaughn-Saige, " + p.role))}</footer></blockquote>` : ""}</div>
@@ -1442,4 +1442,19 @@ document.getElementById("lb-next").onclick = () => show(cur + 1);
 lb.addEventListener("click", e => { if (e.target === lb || e.target.classList.contains("lb-stage")) close(); });
 document.addEventListener("keydown", e => { if (lb.hidden) return;
   if (e.key === "Escape") close(); if (e.key === "ArrowRight") show(cur + 1); if (e.key === "ArrowLeft") show(cur - 1); });
+</script>
+
+<script>
+/* Play videos only while on screen (iPhone Safari limits how many videos can play at once) */
+(function(){
+  if('scrollRestoration' in history && !location.hash){history.scrollRestoration='manual';window.scrollTo(0,0);}
+  var vids=[].slice.call(document.querySelectorAll('video[data-auto]'));
+  vids.forEach(function(v){v.muted=true;v.defaultMuted=true;});
+  if(!('IntersectionObserver' in window)){vids.forEach(function(v){v.preload='metadata';});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
+    if(e.isIntersecting&&e.intersectionRatio>=0.35){if(v.preload==='none')v.preload='auto';var p=v.play();if(p&&p.catch)p.catch(function(){});}
+    else if(!v.paused){v.pause();}
+  });},{threshold:[0,0.35,0.6]});
+  vids.forEach(function(v){io.observe(v);});
+})();
 </script>
