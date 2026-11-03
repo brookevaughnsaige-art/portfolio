@@ -191,7 +191,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   <section class="wrap roster" id="clients" aria-labelledby="clients-title">
     <h2 id="clients-title">Selected clients</h2>
     <ul class="names">
-      <li>Netflix</li><li>HBO Max</li><li>Hulu</li><li>NFL Films</li><li>Spotify</li><li>Progressive</li><li>Root Insurance</li><li>Gerber Life</li><li>U.S. Air Force</li><li>Restoration Hardware</li><li>American Signature Furniture</li><li>Dick's Sporting Goods</li><li>HOKA</li><li>On</li><li>Kay Jewelers</li><li>Kroger</li><li>Libby Wine</li><li>Dex</li><li>Stanley Steemer</li><li>Ohio Department of Transportation</li><li>Hamilton Devices</li><li>Ohio Lottery</li><li>Big Lots</li><li>TriHealth</li><li>Hilton</li><li>Vox</li><li>Twenty One Pilots</li><li>University of Tennessee</li><li>Good Culture</li><li>Harmless Harvest</li><li>Babylife Organics</li><li>I and love and you</li><li>Casa Malka</li><li>Mushroom Heaven</li><li>Littleton's Market</li><li>Fly By Jing</li><li>Condado</li><li>Beer Barrel</li>
+      <li>Netflix</li><li>HBO Max</li><li>Hulu</li><li>NFL Films</li><li>Spotify</li><li>Progressive</li><li>Root Insurance</li><li>Gerber Life</li><li>U.S. Air Force</li><li>Restoration Hardware</li><li>American Signature Furniture</li><li>Dick's Sporting Goods</li><li>HOKA</li><li>On</li><li>Kay Jewelers</li><li>Kroger</li><li>Libby Wine</li><li>Dex</li><li>Stanley Steemer</li><li>Ohio Department of Transportation</li><li>Hamilton Devices</li><li>Ohio Lottery</li><li>Big Lots</li><li>TriHealth</li><li>Hilton</li><li>Vox</li><li>Twenty One Pilots</li><li>University of Tennessee</li><li>Good Culture</li><li>Harmless Harvest</li><li>Babylife Organics</li><li>I and love and you</li><li>Casa Malka</li><li>Mushroom Heaven</li><li>Fly By Jing</li><li>Condado</li><li>Beer Barrel</li>
     </ul>
   </section>
 </main>
@@ -1328,11 +1328,12 @@ const PROJECTS = [
     ]
   },
   {
-    id: "littletons",
-    client: "Littleton's Market",
-    display: "Littleton's <em>Market</em>",
+    id: "sips",
+    client: "Sips",
+    noClient: true,
+    display: "Sips",
     sector: "Hospitality",
-    scope: "Food & Beverage Spec, products sourced from Littleton's Market",
+    scope: "Food & Beverage Spec",
     year: "",
     role: "Creative Direction, Set / Beverage Stylist",
     photographer: "Kyle Tracey",
@@ -1340,7 +1341,7 @@ const PROJECTS = [
     culinary: "Chef Joseph, Hillcrest Supper Club",
     location: "",
     format: "Food & Beverage Spec, still photography",
-    summary: "A food and beverage spec built around specialty products sourced from Littleton's Market: a backlit spritz in a salt-crusted globe glass with leafy mandarins under a fine mist, a non-alcoholic negroni poured against green tile and trailing pothos, an Italian aranciata buried in crushed ice, citrus and salt tins on seamless white, and a plated course of cured mackerel, cucumber ribbons and kiwi from Chef Joseph of Hillcrest Supper Club.",
+    summary: "A food and beverage spec built around specialty products: a backlit spritz in a salt-crusted globe glass with leafy mandarins under a fine mist, a non-alcoholic negroni poured against green tile and trailing pothos, an Italian aranciata buried in crushed ice, citrus and salt tins on seamless white, and a plated course of cured mackerel, cucumber ribbons and kiwi from Chef Joseph of Hillcrest Supper Club.",
     hero: { src: "img/lm-mackerel.jpg", alt: "Cured mackerel with cucumber and kiwi", cap: "", vertical: true },
     sets: [
       { title: "Stills", layout: "justified", rowH: 330, images: [
@@ -1401,7 +1402,7 @@ function tile(img){
 
 document.getElementById("cases").innerHTML = PROJECTS.map((p, i) => {
   const hk = !p.hero || p.hero.video ? -1 : all.push(p.hero) - 1;
-  const meta = [[p.sector === "Film" ? "Title" : "Client", p.clientLabel || p.client], ["Sector", p.sector], ["Role", p.role], ["Co-Creative Director", p.cocd], ["Written & Directed by", p.writerdirector], [p.sector === "Film" ? "Cinematographer" : "Director of Photography", p.dp], ["Starring", p.cast], ["Distributor", p.distributor], ["Art Director / Set Designer", p.artdirector], ["Production Designer", p.designer], ["Art Director", p.ad], ["AD / Producer", p.adprod], ["Videographer", p.videographer], ["Director", p.director], ["Director / DP", p.dirdp], ["Assistant Director", p.asstdir], ["Written by", p.writer], ["Story by", p.story], ["Photographer", p.photographer], ["Producer", p.producer], ["Executive Producer", p.ep], ["Culinary", p.culinary], ["Agency", p.agency], ["Wardrobe", p.wardrobe], ["Production", p.production], ["Network", p.network], ["Format", p.format], ["Location", p.location], ["Year", p.year], ["Release", p.release], ["Theatrical Release", p.theatrical], ["Now Streaming", p.streaming]]
+  const meta = [[p.sector === "Film" ? "Title" : "Client", p.noClient ? "" : (p.clientLabel || p.client)], ["Sector", p.sector], ["Role", p.role], ["Co-Creative Director", p.cocd], ["Written & Directed by", p.writerdirector], [p.sector === "Film" ? "Cinematographer" : "Director of Photography", p.dp], ["Starring", p.cast], ["Distributor", p.distributor], ["Art Director / Set Designer", p.artdirector], ["Production Designer", p.designer], ["Art Director", p.ad], ["AD / Producer", p.adprod], ["Videographer", p.videographer], ["Director", p.director], ["Director / DP", p.dirdp], ["Assistant Director", p.asstdir], ["Written by", p.writer], ["Story by", p.story], ["Photographer", p.photographer], ["Producer", p.producer], ["Executive Producer", p.ep], ["Culinary", p.culinary], ["Agency", p.agency], ["Wardrobe", p.wardrobe], ["Production", p.production], ["Network", p.network], ["Format", p.format], ["Location", p.location], ["Year", p.year], ["Release", p.release], ["Theatrical Release", p.theatrical], ["Now Streaming", p.streaming]]
     .filter(([, v]) => v).map(([k, v]) => `<div><dt class="label">${k}</dt><dd>${esc(v)}</dd></div>`).join("");
   return `<article class="case" id="${p.id}" data-sector="${esc(p.sector)}"><div class="wrap">
     ${!p.hero ? '' : p.hero.video
